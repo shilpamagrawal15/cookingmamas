@@ -19,5 +19,31 @@
 		<div id="kitchen_cabinet"></div>
 		<h3>Your Recipe Builder <small>drag and drop your recipe together</small></h1>
 		<div id="recipe_builder"> </div>
+
+		<!-- Cook Button -->
+		<br> <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cookModal">
+		  COOK!
+		</button>
+
+		<!-- Recipe Modal -->
+		<div class="modal fade" id="cookModal" tabindex="-1" role="dialog" aria-labelledby="cookModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
+		      </div>
+		      <div class="modal-body">
+		        Something about cooking goes here!
+		        Yay cooking!
+		        Yay cookingmamas!
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save to PDF</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</body>
 </html>
