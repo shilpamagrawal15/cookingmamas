@@ -13,11 +13,91 @@
 	</head>
 	<body>
 		<div class="page-header" style="margin-left:5px;">
-		  <h1>Cooking Mamas <small>learn how to cook to perfection</small></h1>
+		  <h1>Cooking Mamas II <small>learn how to cook to perfection</small></h1>
 		</div>
-		<h3>Your Cabinet <small>see what you have available to cook with</small></h1>
-		<div id="kitchen_cabinet"></div>
-		<h3>Your Recipe Builder <small>drag and drop your recipe together</small></h1>
-		<div id="recipe_builder"> </div>
+		<div class="row" style="margin-left:5px; margin-right:5px;">
+		  <div class="col-md-4">
+		  	<div id="objective" class="well well-sm">
+		  		<h4>Objective</h4> <br>
+		  		blah blah blah
+		  	</div>
+		  	<div id="kitchen_cabinet" class="well well-sm">
+		  		<h4>Your Cabinet</h4> <br>
+		  	</div>
+		  </div>
+		  <div class="col-md-4">
+		  	<div id="recipe_1_static" class="well well-sm">
+		  		<h4>Peanut Butter Cookies <b> (Serves 20) </b></h4> <br>
+	  			2 Cups Peanut Butter <br>
+	  			2 Cups White Sugar <br>
+	  			2 Eggs <br>
+	  			2 Tsp Baking Soda <br>
+	  			1 Tsp Vanilla Extract <br>
+		  	</div>
+		  	<div id="recipe_2_static" class="well well-sm">
+		  		<h4>Lemon Pound Cake <b> (Serves 10) </b></h4> <br>
+	  			blah blah blah
+		  	</div>
+		  	<div id="recipe_3_static" class="well well-sm">
+		  		<h4>Sauteed Asparagus <b> (Serves 5) </b></h4> <br>
+	  			blah blah blah
+		  	</div>
+		  	<div id="recipe_4_static" class="well well-sm">
+		  		<h4>Special Linguine <b> (Serves 5) </b></h4> <br>
+	  			blah blah blah
+		  	</div>
+		  </div>
+		  <div class="col-md-4">
+		  	<form>
+		  	<div id="recipe_1_input" class="well well-sm">
+		  		<h4>Peanut Butter Cookies <b> (Serves 20) </b></h4> <br>
+	  			<input type="text" name="rec_1_ing_1" class="input-item"> Cups Peanut Butter <br>
+	  			<input type="text" name="rec_1_ing_2" class="input-item"> Cups White Sugar <br>
+	  			<input type="text" name="rec_1_ing_3" class="input-item"> Eggs <br>
+	  			<input type="text" name="rec_1_ing_4" class="input-item"> Tsp Baking Soda <br>
+	  			<input type="text" name="rec_1_ing_5" class="input-item"> Tsp Vanilla Extract <br>
+		  	</div>
+		  	<div id="recipe_2_input" class="well well-sm">
+		  		<h4>Lemon Pound Cake <b> (Serves 10) </b></h4> <br>
+	  			blah blah blah
+		  	</div>
+		  	<div id="recipe_3_input" class="well well-sm">
+		  		<h4>Sauteed Asparagus <b> (Serves 5) </b></h4> <br>
+	  			blah blah blah
+		  	</div>
+		  	<div id="recipe_4_input" class="well well-sm">
+		  		<h4>Special Linguine <b> (Serves 5) </b></h4> <br>
+	  			blah blah blah
+		  	</div>
+		  	<input type="submit" value="Cook!" class="btn btn-primary btn-lg">
+		  	</form>
+		  </div>
+		</div>
+
+		<!-- Cook Button -->
+<!-- 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cookModal">
+		  COOK!
+		</button> -->
+
+		<!-- Recipe Modal -->
+		<div class="modal fade" id="cookModal" tabindex="-1" role="dialog" aria-labelledby="cookModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
+		      </div>
+		      <div class="modal-body">
+		        Something about cooking goes here!
+		        Yay cooking!
+		        Yay cookingmamas!
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save to PDF</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
 	</body>
 </html>
