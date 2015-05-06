@@ -1,4 +1,10 @@
 /*	object containing all the levels */
+// solution parameters are:
+	// equal --> exactly equal to
+	// greater --> greater than
+	// less --> less than
+	// total --> all entrees/desserts combined
+
 var levels = 
 	{
 		1: 
@@ -20,7 +26,45 @@ var levels =
 						{type: "garlic", quantity: 10, unit: "cloves"},
 						{type: "shrimp", quantity: 50, unit: "oz"}
 					],
-				solution: null
+				solution: 
+					{
+						"Peanut Butter Cookies":
+							{
+								servings: 23,
+								comparator: "total",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Lemon Pound Cake":
+							{
+								servings: 23,
+								comparator: "total",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Sauteed Asparagus":
+							{
+								servings: 40,
+								comparator: "total",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Shrimp Linguini":
+							{
+								servings: 40,
+								comparator: "total",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							}
+					}
 			},
 		2: 
 			{
@@ -41,7 +85,45 @@ var levels =
 						{type: "garlic", quantity: 10, unit: "cloves"},
 						{type: "shrimp", quantity: 50, unit: "oz"}
 					],
-				solution: null
+				solution:
+					{
+						"Peanut Butter Cookies":
+							{
+								servings: 20,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Lemon Pound Cake":
+							{
+								servings: 0,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Sauteed Asparagus":
+							{
+								servings: 0,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Shrimp Linguini":
+							{
+								servings: 20,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							}
+					}
 			},
 		3: 
 			{
@@ -62,6 +144,44 @@ var levels =
 						{type: "garlic", quantity: 10, unit: "cloves"},
 						{type: "shrimp", quantity: 50, unit: "oz"}
 					],
-				solution: null
+				solution: 
+					{
+						"Peanut Butter Cookies":
+							{
+								servings: 17,
+								comparator: "greater",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Lemon Pound Cake":
+							{
+								servings: 10,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Sauteed Asparagus":
+							{
+								servings: 12,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+						"Shrimp Linguini":
+							{
+								servings: 15,
+								comparator: "equal",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							}
+					}
 			}
 	}
