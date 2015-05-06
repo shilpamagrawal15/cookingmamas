@@ -6,67 +6,67 @@ var ingredients =
 	{
 		"peanut butter":
 			{
-				image: null, 
+				image: "./images/peanut_butter.png", 
 				unit: "cups"
 			},
 		"sugar":
 			{
-				image: null, 
+				image: "./images/sugar.png", 
 				unit: "cups"
 			},
 		"eggs":
 			{
-				image: null, 
+				image: "./images/eggs.png", 
 				unit: null
 			},
 		"baking soda":
 			{
-				image: null, 
+				image: "./images/flour.png", //"./images/baking_soda.png", 
 				unit: "tsp"
 			},
 		"vanilla extract":
 			{
-				image: null, 
+				image: "./images/vanilla.png", 
 				unit: "tsp"
 			},
 		"butter":
 			{
-				image: null, 
+				image: "./images/butter.png", 
 				unit: "tbsp"
 			},
 		"flour":
 			{
-				image: null, 
+				image: "./images/flour.png", 
 				unit: "cups"
 			},
 		"baking powder":
 			{
-				image: null, 
+				image: "./images/flour.png", //"./images/baking_powder.png", 
 				unit: "tsp"
 			},
 		"lemon juice":
 			{
-				image: null, 
+				image: "./images/lemon_juice.png", 
 				unit: "tbsp"
 			},
 		"thin asparagus spears":
 			{
-				image: null, 
+				image: "./images/asparagus.png", 
 				unit: null
 			},
 		"linguine":
 			{
-				image: null, 
+				image: "./images/linguine.png", 
 				unit: "lbs"
 			},
 		"garlic":
 			{
-				image: null, 
+				image: "./images/garlic.png", 
 				unit: "cloves"
 			},
 		"shrimp":
 			{
-				image: null, 
+				image: "./images/shrimp.png", 
 				unit: "oz"
 			}
 	}

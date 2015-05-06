@@ -14,9 +14,9 @@ $(document).ready(function () {
 		for (var j=0; j<ingredients_list.length;j++){
 			var static_ingredient = recipes[i].ingredients[j].quantity;
 			var input_ingredient = '<input type="text" data-value="'+ recipes[i].ingredients[j].type +'" id="rec_'+i+'_ing_'+j+'" class="input-item">';
-			if (recipes[i].ingredients[j].unit != null) {
-				input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].unit;
-				static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].unit;
+			if (ingredients[recipes[i].ingredients[j].type].unit != null) {
+				input_ingredient = input_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
+				static_ingredient = static_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
 			} 
 			static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].type;
 			input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].type;
@@ -28,18 +28,17 @@ $(document).ready(function () {
 
 /* load the level's objective and cabinet items */
 function loadLevel(level) {
+	// load objective
 	$("#objective").empty();
 	$("#objective").append(levels[level].objective);
 
-	//@sagrawal TODO: load kitchen cabinet items
-	
-	// var cabinet_img_list = ['milk_carton.png', 'flour.jpg'];
-	/* dynamically generate cabinet based on cabinet_img_list */
-	// $('#kitchen_cabinet').append('<div></div>').addClass('row');
-	// for (var i=0; i<cabinet_img_list.length; i++) {
-	// 	var col = $('<div class="col-xs-6 col-md-3">');
-	// 	var thumbnail = $('<a href="#" class="thumbnail" style="height:100px"><img class="cabinet-item" src="./images/'+cabinet_img_list[i]+'"></a>');
-	// 	col.append(thumbnail);
-	// 	$('#kitchen_cabinet').append(col);
-	// }
+	//load kitchen cabinet items
+	for (var i=0; i<levels[level].cabinet.length; i++) {
+		console.log(levels[level].cabinet[i].type);
+		var ingredient_well = $('<div class="well well-sm cabinet-item">');
+		var ingredient_image = '<a class="thumbnail cabinet-img""><img src="'+ingredients[levels[level].cabinet[i].type].image+'"></a>';
+		$(ingredient_well).append(ingredient_image);
+		$(ingredient_well).append('<span>'+levels[level].cabinet[i].type+': '+levels[level].cabinet[i].quantity +" "+ingredients[levels[level].cabinet[i].type].unit+'</span>');
+		$('#cabinet').append(ingredient_well);
+	}
 }
