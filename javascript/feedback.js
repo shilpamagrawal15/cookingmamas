@@ -5,6 +5,7 @@
 //     where ingredients & proportions used in a given recipe are specified within another JavaScript object
 
 $(document).ready(function () {
+	//submitting the answer and converting it into an object
 	$("#cookBtn").click(function(){
 		var input_obj = {};
 		for (var i=0; i<recipes.length; i++) {

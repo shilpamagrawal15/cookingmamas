@@ -18,10 +18,22 @@ $(document).ready(function () {
 				input_ingredient = input_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
 				static_ingredient = static_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
 			} 
-			static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].type;
-			input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].type;
+			static_ingredient = static_ingredient + " " + ingredients[recipes[i].ingredients[j].type].name;
+			input_ingredient = input_ingredient + " " + ingredients[recipes[i].ingredients[j].type].name;
 			$(static_div_name).append(static_ingredient + "<br>");
 			$(input_div_name).append(input_ingredient + "<br>");
+		}
+	}
+	/* associate listeners onto each of the text inputs */
+	for (var i=0; i<recipes.length;i++) {
+		for (var j=0; j<recipes[i].ingredients.length; j++) {
+			var input_id = "#rec_"+i+"_ing_"+j;
+			$(input_id).keyup(function(){
+				var ingredient = this.getAttribute('data-value');
+				//TODO: @jane - this is where you should write your code to handle events on each input
+				//	use the ingredient variable defined above to associate it with the cabinet quantity
+				//	note: cabinet quanitity ids are cabinet_quanitity_ingredient where _ingredient is the variable above
+			});
 		}
 	}
 });
@@ -31,7 +43,6 @@ function loadLevel(level) {
 	// load objective
 	$("#objective").empty();
 	$("#objective").append(levels[level].objective);
-
 	//load kitchen cabinet items
 	$('#cabinet').empty();
 	for (var i=0; i<levels[level].cabinet.length; i++) {
@@ -42,7 +53,7 @@ function loadLevel(level) {
 		if (ingredients[levels[level].cabinet[i].type].unit !== null) {
 			unit = ingredients[levels[level].cabinet[i].type].unit;
 		}
-		$(ingredient_well).append('<span>'+levels[level].cabinet[i].type+':<br>'+levels[level].cabinet[i].quantity +" "+unit+'</span>');
+		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><span id=cabinet_quantity_'+levels[level].cabinet[i].type+'><b>'+levels[level].cabinet[i].quantity +"</b></span> "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
 }

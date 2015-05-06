@@ -9,11 +9,11 @@ var recipes =
 			dish: "Peanut Butter Cookies",
 			serving: 20,
 			ingredients: [
-				{type: "peanut butter", quantity: 2},
+				{type: "peanut_butter", quantity: 2},
 				{type: "sugar", quantity: 2},
 				{type: "eggs", quantity: 2},
-				{type: "baking soda", quantity: 2},
-				{type: "vanilla extract", quantity: 1},
+				{type: "baking_soda", quantity: 2},
+				{type: "vanilla_extract", quantity: 1},
 				{type: "butter", quantity: 4}
 			]
 		},
@@ -22,12 +22,12 @@ var recipes =
 			serving: 10,
 			ingredients: [
 				{type: "flour", quantity: 1.5},
-				{type: "baking powder", quantity: 1},
+				{type: "baking_powder", quantity: 1},
 				{type: "butter", quantity: 8},
 				{type: "sugar", quantity: 1},
 				{type: "eggs", quantity: 4},
-				{type: "vanilla extract", quantity: 2},
-				{type: "lemon juice", quantity: 4}
+				{type: "vanilla_extract", quantity: 2},
+				{type: "lemon_juice", quantity: 4}
 			]
 		},
 		{
@@ -35,7 +35,7 @@ var recipes =
 			serving: 5,
 			ingredients: [
 				{type: "asparagus", quantity: 30},
-				{type: "lemon juice", quantity: 5},
+				{type: "lemon_juice", quantity: 5},
 				{type: "butter", quantity: 5}
 			]
 		},
@@ -45,7 +45,7 @@ var recipes =
 			ingredients: [
 				{type: "linguine", quantity: 1},
 				{type: "butter", quantity: 3},
-				{type: "lemon juice", quantity: 1},
+				{type: "lemon_juice", quantity: 1},
 				{type: "garlic", quantity: 2},
 				{type: "shrimp", quantity: 8}
 			]
