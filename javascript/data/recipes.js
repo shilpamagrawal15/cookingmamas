@@ -10,7 +10,7 @@ var recipes =
 			serving: 20,
 			ingredients: [
 				{type: "peanut butter", quantity: 2, unit: "cups"},
-				{type: "white sugar", quantity: 2, unit: "cups"},
+				{type: "sugar", quantity: 2, unit: "cups"},
 				{type: "eggs", quantity: 2, unit: null},
 				{type: "baking soda", quantity: 2, unit: "tsp"},
 				{type: "vanilla extract", quantity: 1, unit: "tsp"},
