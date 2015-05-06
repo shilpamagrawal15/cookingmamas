@@ -10,94 +10,94 @@
 		<link rel="stylesheet" href="./style.css">
 		<!-- javascript files -->
 		<script src="./javascript/load_index.js"></script>
+		<script src="./javascript/data/recipes.js"></script>
+		<script src="./javascript/data/levels.js"></script>
+		<script src="./javascript/data/ingredients.js"></script>
+		<script src="./javascript/data/dishes.js"></script>
+		<script src="./javascript/feedback.js"></script>
 	</head>
 	<body>
 		<div class="page-header" style="margin-left:5px;">
 		  <h1>Cooking Mamas II <small>learn how to cook to perfection</small></h1>
+		 	<!-- this button is just for testing -->
+			<div class="btn-group">
+			  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			    Choose Your Level <span class="caret"></span>
+			  </button> 
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a onclick="loadLevel(1)">Level 1</a></li>
+			    <li><a onclick="loadLevel(2)">Level 2</a></li>
+			    <li><a onclick="loadLevel(3)">Level 3</a></li>
+			    <li><a onclick="#">Level 4</a></li>
+			  </ul>
+			</div>
 		</div>
 		<div class="row" style="margin-left:5px; margin-right:5px;">
-		  <div class="col-md-4">
-		  	<div id="objective" class="well well-sm">
-		  		<h4>Objective</h4> <br>
-		  		blah blah blah
+		  <div class="col-md-5">
+		  	<div class="well well-sm">
+		  		<h4>Objective</h4>
+		  		<div id="objective"></div>
 		  	</div>
-		  	<div id="kitchen_cabinet" class="well well-sm">
+		  	<div class="well well-sm">
 		  		<h4>Your Cabinet</h4> <br>
+		  		<div id="cabinet"></div>
 		  	</div>
 		  </div>
-		  <div class="col-md-4">
-		  	<div id="recipe_1_static" class="well well-sm">
-		  		<h4>Peanut Butter Cookies <b> (Serves 20) </b></h4> <br>
-	  			2 Cups Peanut Butter <br>
-	  			2 Cups White Sugar <br>
-	  			2 Eggs <br>
-	  			2 Tsp Baking Soda <br>
-	  			1 Tsp Vanilla Extract <br>
+		  <div class="col-md-7">
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  			<div id="recipe_0_static" class="well well-sm recipe-well"></div>
+		  		</div>
+		  		<div class="col-md-6">
+		  			<div id="recipe_0_input" class="well well-sm recipe-well"></div>
+		  		</div>
 		  	</div>
-		  	<div id="recipe_2_static" class="well well-sm">
-		  		<h4>Lemon Pound Cake <b> (Serves 10) </b></h4> <br>
-	  			blah blah blah
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  			<div id="recipe_1_static" class="well well-sm recipe-well"></div>
+		  		</div>
+		  		<div class="col-md-6">
+		  			<div id="recipe_1_input" class="well well-sm recipe-well"></div>
+		  		</div>
 		  	</div>
-		  	<div id="recipe_3_static" class="well well-sm">
-		  		<h4>Sauteed Asparagus <b> (Serves 5) </b></h4> <br>
-	  			blah blah blah
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  			<div id="recipe_2_static" class="well well-sm recipe-well"></div>
+		  		</div>
+		  		<div class="col-md-6">
+		  			<div id="recipe_2_input" class="well well-sm recipe-well"></div>
+		  		</div>
 		  	</div>
-		  	<div id="recipe_4_static" class="well well-sm">
-		  		<h4>Special Linguine <b> (Serves 5) </b></h4> <br>
-	  			blah blah blah
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  			<div id="recipe_3_static" class="well well-sm recipe-well"></div>
+		  		</div>
+		  		<div class="col-md-6">
+		  			<div id="recipe_3_input" class="well well-sm recipe-well"></div>
+		  			<button id="cookBtn" class="btn btn-primary btn-lg" type="button"> Cook! </button>
+		  		</div>
 		  	</div>
-		  </div>
-		  <div class="col-md-4">
-		  	<form>
-		  	<div id="recipe_1_input" class="well well-sm">
-		  		<h4>Peanut Butter Cookies <b> (Serves 20) </b></h4> <br>
-	  			<input type="text" name="rec_1_ing_1" class="input-item"> Cups Peanut Butter <br>
-	  			<input type="text" name="rec_1_ing_2" class="input-item"> Cups White Sugar <br>
-	  			<input type="text" name="rec_1_ing_3" class="input-item"> Eggs <br>
-	  			<input type="text" name="rec_1_ing_4" class="input-item"> Tsp Baking Soda <br>
-	  			<input type="text" name="rec_1_ing_5" class="input-item"> Tsp Vanilla Extract <br>
-		  	</div>
-		  	<div id="recipe_2_input" class="well well-sm">
-		  		<h4>Lemon Pound Cake <b> (Serves 10) </b></h4> <br>
-	  			blah blah blah
-		  	</div>
-		  	<div id="recipe_3_input" class="well well-sm">
-		  		<h4>Sauteed Asparagus <b> (Serves 5) </b></h4> <br>
-	  			blah blah blah
-		  	</div>
-		  	<div id="recipe_4_input" class="well well-sm">
-		  		<h4>Special Linguine <b> (Serves 5) </b></h4> <br>
-	  			blah blah blah
-		  	</div>
-		  	<input type="submit" value="Cook!" class="btn btn-primary btn-lg">
-		  	</form>
-		  </div>
-		</div>
-
-		<!-- Cook Button -->
-<!-- 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cookModal">
-		  COOK!
-		</button> -->
-
-		<!-- Recipe Modal -->
-		<div class="modal fade" id="cookModal" tabindex="-1" role="dialog" aria-labelledby="cookModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
-		      </div>
-		      <div class="modal-body">
-		        Something about cooking goes here!
-		        Yay cooking!
-		        Yay cookingmamas!
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save to PDF</button>
-		      </div>
-		    </div>
 		  </div>
 		</div>
 	</body>
+
+	<!-- Feedback Modal -->
+	<div id="feedback_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cookModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
+	      </div>
+	      <div class="modal-body">
+	        Something about cooking goes here!
+	        Yay cooking!
+	        Yay cookingmamas!
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </html>
