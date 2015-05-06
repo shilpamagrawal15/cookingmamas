@@ -11,16 +11,30 @@
 		<!-- javascript files -->
 		<script src="./javascript/load_index.js"></script>
 		<script src="./javascript/data/recipes.js"></script>
+		<script src="./javascript/data/levels.js"></script>
+		<script src="./javascript/data/ingredients.js"></script>
 	</head>
 	<body>
 		<div class="page-header" style="margin-left:5px;">
 		  <h1>Cooking Mamas II <small>learn how to cook to perfection</small></h1>
+		 	<!-- this button is just for testing -->
+			<div class="btn-group">
+			  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			    Choose Your Level <span class="caret"></span>
+			  </button> 
+			  <ul class="dropdown-menu" role="menu">
+			    <li><a onclick="loadLevel(1)">Level 1</a></li>
+			    <li><a onclick="loadLevel(2)">Level 2</a></li>
+			    <li><a onclick="loadLevel(3)">Level 3</a></li>
+			    <li><a onclick="#">Level 4</a></li>
+			  </ul>
+			</div>
 		</div>
 		<div class="row" style="margin-left:5px; margin-right:5px;">
 		  <div class="col-md-4">
-		  	<div id="objective" class="well well-sm">
-		  		<h4>Objective</h4> <br>
-		  		blah blah blah
+		  	<div class="well well-sm">
+		  		<h4>Objective</h4>
+		  		<div id="objective"></div>
 		  	</div>
 		  	<div id="kitchen_cabinet" class="well well-sm">
 		  		<h4>Your Cabinet</h4> <br>
@@ -35,26 +49,10 @@
 		  </div>
 		  <div class="col-md-4">
 		  	<form>
-		  	<div id="recipe_0_input" class="well well-sm">
-<!-- 		  		<h4>Peanut Butter Cookies <b> (Serves 20) </b></h4> <br>
-	  			<input type="text" name="rec_1_ing_1" class="input-item"> Cups Peanut Butter <br>
-	  			<input type="text" name="rec_1_ing_2" class="input-item"> Cups White Sugar <br>
-	  			<input type="text" name="rec_1_ing_3" class="input-item"> Eggs <br>
-	  			<input type="text" name="rec_1_ing_4" class="input-item"> Tsp Baking Soda <br>
-	  			<input type="text" name="rec_1_ing_5" class="input-item"> Tsp Vanilla Extract <br> -->
-		  	</div>
-		  	<div id="recipe_1_input" class="well well-sm">
-<!-- 		  		<h4>Lemon Pound Cake <b> (Serves 10) </b></h4> <br>
-	  			blah blah blah -->
-		  	</div>
-		  	<div id="recipe_2_input" class="well well-sm">
-<!-- 		  		<h4>Sauteed Asparagus <b> (Serves 5) </b></h4> <br>
-	  			blah blah blah -->
-		  	</div>
-		  	<div id="recipe_3_input" class="well well-sm">
-<!-- 		  		<h4>Special Linguine <b> (Serves 5) </b></h4> <br>
-	  			blah blah blah -->
-		  	</div>
+		  	<div id="recipe_0_input" class="well well-sm"></div>
+		  	<div id="recipe_1_input" class="well well-sm"></div>
+		  	<div id="recipe_2_input" class="well well-sm"></div>
+		  	<div id="recipe_3_input" class="well well-sm"></div>
 		  	<input type="submit" value="Cook!" class="btn btn-primary btn-lg">
 		  	</form>
 		  </div>
