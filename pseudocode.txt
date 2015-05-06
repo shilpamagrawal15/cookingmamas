@@ -1,0 +1,43 @@
+pseudocode for comparison function
+
+# global variables
+
+recipes := contains correct proportions of ingredients for all dishes 
+	# maybe it would be easier to have the amounts for 1 serving?
+level := maps level to client requests, other constraints
+	# that's going off the format of the levels on the google drive
+
+# function to provide feedback will call upon functions that:
+	# 1) determine if correct proportions
+	# 2) determine if client request (level objective) is met
+	# 3) determine if level constraints are met in satisfying the request ("other constraints" on google drive)
+
+# function to determine if correct proportions
+def proportions(user_recipe):
+	# something to track the user's missteps 
+	# we could make this less informative and just tell them the dishes where they messed up
+	# maps dish --> list of ingredients whose proportions are off in that dish}
+	proportion_feedback = {} 
+
+	for dish in user_recipe:
+		current_dish := get the correct proportions of ingredients for this from the global "recipes" variable
+		for ingredient in dish.ingredients:
+			correct_proportion = proportion of that ingredient in the dish, taken from global "recipes" variable
+			user_proportion = ingredient.quantity / dish.serving
+			if correct_proportion != user_proportion:
+				proportion_feedback[dish].add(ingredient)
+	if proportion_feedback not empty:
+		# can output:
+		#	dishes where proportions off
+		# 	dishes, ingredients in those dishes
+		output proportion_feedback
+
+# function to determine if objective is met
+# this will be dependent upon how we represent the level objectives/constraints
+# will take in the user_recipe and the level as inputs
+--> get how many servings of each dish are made
+--> determine how many servings of entree and dessert are made
+--> check if these satisfy constraints
+
+# the proportions should be checked first, then the level objectives. if user has messed up proportions, they should get feedback on that, then try again, maybe next time they get the proportions but don't meet objective. 
+
