@@ -1,10 +1,16 @@
 .cabinet-img {
-	height: 75px;
-	width: 75px;
+	height: 80px;
+	width: 80px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
 }
 
 .cabinet-item {
-	width: 40%;
+	width: 32%;
+	margin-left:1px;
+	margin-right:1px;
 }
 
 .input-item {

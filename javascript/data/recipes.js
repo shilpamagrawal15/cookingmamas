@@ -34,7 +34,7 @@ var recipes =
 			dish: "Sauteed Asparagus",
 			serving: 5,
 			ingredients: [
-				{type: "thin asparagus spears", quantity: 30},
+				{type: "asparagus", quantity: 30},
 				{type: "lemon juice", quantity: 5},
 				{type: "butter", quantity: 5}
 			]

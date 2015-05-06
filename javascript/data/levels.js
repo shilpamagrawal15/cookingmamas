@@ -21,7 +21,7 @@ var levels =
 						{type: "flour", quantity: 6},
 						{type: "baking powder", quantity: 4},
 						{type: "lemon juice", quantity: 30},
-						{type: "thin asparagus spears", quantity: 120},
+						{type: "asparagus", quantity: 120},
 						{type: "linguine", quantity: 5},
 						{type: "garlic", quantity: 10},
 						{type: "shrimp", quantity: 50}
@@ -80,7 +80,7 @@ var levels =
 						{type: "flour", quantity: 6},
 						{type: "baking powder", quantity: 4},
 						{type: "lemon juice", quantity: 30},
-						{type: "thin asparagus spears", quantity: 120},
+						{type: "asparagus", quantity: 120},
 						{type: "linguine", quantity: 5},
 						{type: "garlic", quantity: 10},
 						{type: "shrimp", quantity: 50}
@@ -139,7 +139,7 @@ var levels =
 						{type: "flour", quantity: 6},
 						{type: "baking powder", quantity: 4},
 						{type: "lemon juice", quantity: 19},
-						{type: "thin asparagus spears", quantity: 120},
+						{type: "asparagus", quantity: 120},
 						{type: "linguine", quantity: 5},
 						{type: "garlic", quantity: 10},
 						{type: "shrimp", quantity: 50}
