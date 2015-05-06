@@ -9,21 +9,21 @@ $(document).ready(function () {
 		$(static_div_name).append(static_recipe_header);
 		// input recipe header 
 		var input_div_name = "#recipe_" + i + "_input";
-		var input_recipe_header = $('<h4>'+ recipes[i].dish + ' <b> (Serves ' + '<input type="text" name=recipe_' + i + '_serving class="input-item">' + ') </b></h4>');
+		var input_recipe_header = $('<h4>'+ recipes[i].dish + ' <b> (Serves ' + '<input type="text" id=recipe_' + i + '_serving class="input-item">' + ') </b></h4>');
 		$(input_div_name).append(input_recipe_header);
 		// loading ingredients onto recipe
 		var ingredients_list = recipes[i].ingredients;
 		for (var j=0; j<ingredients_list.length;j++){
 			var static_ingredient = recipes[i].ingredients[j].quantity;
-			var input_ingredient = '<input type="text" name="rec_'+i+'_ing_'+j+'" class="input-item">';
+			var input_ingredient = '<input type="text" data-value="'+ recipes[i].ingredients[j].type +'" id="rec_'+i+'_ing_'+j+'" class="input-item">';
 			if (recipes[i].ingredients[j].unit != null) {
 				input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].unit;
 				static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].unit;
 			} 
-			input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].type;
 			static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].type;
-			$(input_div_name).append(input_ingredient + "<br>");
+			input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].type;
 			$(static_div_name).append(static_ingredient + "<br>");
+			$(input_div_name).append(input_ingredient + "<br>");
 		}
 	}
 });

@@ -1,7 +1,7 @@
 /* dishes */
 
 var dishes =
-	[
+	{
 		"Peanut Butter Cookies":
 			{
 				type: "dessert", 
@@ -22,4 +22,4 @@ var dishes =
 				type: "entree", 
 				image: null
 			}
-	]
+	};
