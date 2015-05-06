@@ -20,6 +20,6 @@ $(document).ready(function () {
 });
 
 // TODO: @ava
-function generateFeedback(input_obj) {
+function generateFeedback(submission) {
 	// insert comparator and generating feedback function
 }

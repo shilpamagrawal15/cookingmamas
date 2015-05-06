@@ -1,5 +1,3 @@
-var cabinet_img_list = ['milk_carton.png', 'flour.jpg'];
-
 $(document).ready(function () {
 	/* load the recipes onto game screen */
 	for (var i=0; i<recipes.length; i++) {
@@ -34,7 +32,8 @@ function loadLevel(level) {
 	$("#objective").append(levels[level].objective);
 
 	//@sagrawal TODO: load kitchen cabinet items
-
+	
+	// var cabinet_img_list = ['milk_carton.png', 'flour.jpg'];
 	/* dynamically generate cabinet based on cabinet_img_list */
 	// $('#kitchen_cabinet').append('<div></div>').addClass('row');
 	// for (var i=0; i<cabinet_img_list.length; i++) {
