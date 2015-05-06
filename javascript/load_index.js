@@ -33,12 +33,16 @@ function loadLevel(level) {
 	$("#objective").append(levels[level].objective);
 
 	//load kitchen cabinet items
+	$('#cabinet').empty();
 	for (var i=0; i<levels[level].cabinet.length; i++) {
-		console.log(levels[level].cabinet[i].type);
-		var ingredient_well = $('<div class="well well-sm cabinet-item">');
+		var ingredient_well = $('<div class="well well-sm cabinet-item" style="display:inline-block;">');
 		var ingredient_image = '<a class="thumbnail cabinet-img""><img src="'+ingredients[levels[level].cabinet[i].type].image+'"></a>';
 		$(ingredient_well).append(ingredient_image);
-		$(ingredient_well).append('<span>'+levels[level].cabinet[i].type+': '+levels[level].cabinet[i].quantity +" "+ingredients[levels[level].cabinet[i].type].unit+'</span>');
+		var unit = "";
+		if (ingredients[levels[level].cabinet[i].type].unit !== null) {
+			unit = ingredients[levels[level].cabinet[i].type].unit;
+		}
+		$(ingredient_well).append('<span>'+levels[level].cabinet[i].type+':<br>'+levels[level].cabinet[i].quantity +" "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
 }

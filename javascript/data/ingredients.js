@@ -21,7 +21,7 @@ var ingredients =
 			},
 		"baking soda":
 			{
-				image: "./images/flour.png", //"./images/baking_soda.png", 
+				image: "./images/baking_soda.png", 
 				unit: "tsp"
 			},
 		"vanilla extract":
@@ -41,7 +41,7 @@ var ingredients =
 			},
 		"baking powder":
 			{
-				image: "./images/flour.png", //"./images/baking_powder.png", 
+				image: "./images/baking_powder.png", 
 				unit: "tsp"
 			},
 		"lemon juice":
@@ -49,7 +49,7 @@ var ingredients =
 				image: "./images/lemon_juice.png", 
 				unit: "tbsp"
 			},
-		"thin asparagus spears":
+		"asparagus":
 			{
 				image: "./images/asparagus.png", 
 				unit: null
