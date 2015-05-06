@@ -13,6 +13,7 @@
 		<script src="./javascript/data/recipes.js"></script>
 		<script src="./javascript/data/levels.js"></script>
 		<script src="./javascript/data/ingredients.js"></script>
+		<script src="./javascript/feedback.js"></script>
 	</head>
 	<body>
 		<div class="page-header" style="margin-left:5px;">
@@ -36,9 +37,9 @@
 		  		<h4>Objective</h4>
 		  		<div id="objective"></div>
 		  	</div>
-		  	<div id="kitchen_cabinet" class="well well-sm">
+		  	<div class="well well-sm">
 		  		<h4>Your Cabinet</h4> <br>
-		  		blah blah blah
+		  		<div id="cabinet"></div>
 		  	</div>
 		  </div>
 		  <div class="col-md-4">
@@ -48,40 +49,34 @@
 		  	<div id="recipe_3_static" class="well well-sm"></div>
 		  </div>
 		  <div class="col-md-4">
-		  	<form>
-		  	<div id="recipe_0_input" class="well well-sm"></div>
-		  	<div id="recipe_1_input" class="well well-sm"></div>
-		  	<div id="recipe_2_input" class="well well-sm"></div>
-		  	<div id="recipe_3_input" class="well well-sm"></div>
-		  	<input type="submit" value="Cook!" class="btn btn-primary btn-lg">
-		  	</form>
-		  </div>
-		</div>
-
-		<!-- Cook Button -->
-<!-- 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#cookModal">
-		  COOK!
-		</button> -->
-
-		<!-- Recipe Modal -->
-		<div class="modal fade" id="cookModal" tabindex="-1" role="dialog" aria-labelledby="cookModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
-		      </div>
-		      <div class="modal-body">
-		        Something about cooking goes here!
-		        Yay cooking!
-		        Yay cookingmamas!
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Save to PDF</button>
-		      </div>
-		    </div>
+		  	<!-- <form> -->
+			  	<div id="recipe_0_input" class="well well-sm"></div>
+			  	<div id="recipe_1_input" class="well well-sm"></div>
+			  	<div id="recipe_2_input" class="well well-sm"></div>
+			  	<div id="recipe_3_input" class="well well-sm"></div>
+			  	<input id="cookBtn" type="submit" value="Cook!" class="btn btn-primary btn-lg">
+		  	<!-- </form> -->
 		  </div>
 		</div>
 	</body>
+
+	<!-- Feedback Modal -->
+	<div id="feedback_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="cookModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
+	      </div>
+	      <div class="modal-body">
+	        Something about cooking goes here!
+	        Yay cooking!
+	        Yay cookingmamas!
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </html>

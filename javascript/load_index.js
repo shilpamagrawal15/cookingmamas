@@ -14,16 +14,16 @@ $(document).ready(function () {
 		// loading ingredients onto recipe
 		var ingredients_list = recipes[i].ingredients;
 		for (var j=0; j<ingredients_list.length;j++){
-			// static recipe ingredients
-			var static_ingredient = recipes[i].ingredients[j].quantity + " " + recipes[i].ingredients[j].unit + " " + recipes[i].ingredients[j].type;
-			$(static_div_name).append(static_ingredient + "<br>");
-			// input recipe ingredients
+			var static_ingredient = recipes[i].ingredients[j].quantity;
 			var input_ingredient = '<input type="text" name="rec_'+i+'_ing_'+j+'" class="input-item">';
 			if (recipes[i].ingredients[j].unit != null) {
 				input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].unit;
+				static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].unit;
 			} 
 			input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].type;
+			static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].type;
 			$(input_div_name).append(input_ingredient + "<br>");
+			$(static_div_name).append(static_ingredient + "<br>");
 		}
 	}
 });
