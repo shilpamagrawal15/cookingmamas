@@ -18,8 +18,8 @@ $(document).ready(function () {
 				input_ingredient = input_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
 				static_ingredient = static_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
 			} 
-			static_ingredient = static_ingredient + " " + recipes[i].ingredients[j].type;
-			input_ingredient = input_ingredient + " " + recipes[i].ingredients[j].type;
+			static_ingredient = static_ingredient + " " + ingredients[recipes[i].ingredients[j].type].name;
+			input_ingredient = input_ingredient + " " + ingredients[recipes[i].ingredients[j].type].name;
 			$(static_div_name).append(static_ingredient + "<br>");
 			$(input_div_name).append(input_ingredient + "<br>");
 		}
@@ -42,7 +42,7 @@ function loadLevel(level) {
 		if (ingredients[levels[level].cabinet[i].type].unit !== null) {
 			unit = ingredients[levels[level].cabinet[i].type].unit;
 		}
-		$(ingredient_well).append('<span>'+levels[level].cabinet[i].type+':<br>'+levels[level].cabinet[i].quantity +" "+unit+'</span>');
+		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br>'+levels[level].cabinet[i].quantity +" "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
 }
