@@ -13,7 +13,7 @@ $(document).ready(function () {
 				var input_id = "#rec_"+i+"_ing_"+j;
 				input_ingredients[recipes[i].ingredients[j].type] = $(input_id).val();
 			}
-			input_obj[recipes[i].dish] = input_ingredients;
+			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: $("#recipe_"+i+"_serving").val()};
 		}
 		// TODO: @ava - call generateFeedback(input_obj)
 	});
