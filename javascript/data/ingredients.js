@@ -1,19 +1,82 @@
 /* ingredients */
-
-// TODO: find image assets for each ingredient (replace image: null)
 var ingredients =
-	[
-		{type: "peanut butter", image: null, unit: "cups"},
-		{type: "sugar", image: null, unit: "cups"},
-		{type: "eggs", image: null, unit: null},
-		{type: "baking soda", image: null, unit: "tsp"},
-		{type: "vanilla extract", quantity: 1, unit: "tsp"},
-		{type: "butter", image: null, unit: "tbsp"},
-		{type: "flour", image: null, unit: "cups"},
-		{type: "baking powder", image: null, unit: "tsp"},
-		{type: "lemon juice", image: null, unit: "tbsp"},
-		{type: "thin asparagus spears", image: null, unit: null},
-		{type: "linguine", image: null, unit: "lbs"},
-		{type: "garlic", image: null, unit: "cloves"},
-		{type: "shrimp", image: null, unit: "oz"}
-	]
+	{
+		"peanut_butter":
+			{
+				name: "peanut butter",
+				image: "./images/peanut_butter.png", 
+				unit: "cups"
+			},
+		"sugar":
+			{
+				name: "sugar",
+				image: "./images/sugar.png", 
+				unit: "cups"
+			},
+		"eggs":
+			{
+				name: "eggs",
+				image: "./images/eggs.png", 
+				unit: null
+			},
+		"baking_soda":
+			{
+				name: "baking soda",
+				image: "./images/baking_soda.png", 
+				unit: "tsp"
+			},
+		"vanilla_extract":
+			{
+				name: "vanilla extract",
+				image: "./images/vanilla.png", 
+				unit: "tsp"
+			},
+		"butter":
+			{
+				name: "butter",
+				image: "./images/butter.png", 
+				unit: "tbsp"
+			},
+		"flour":
+			{
+				name: "flour",
+				image: "./images/flour.png", 
+				unit: "cups"
+			},
+		"baking_powder":
+			{
+				name: "baking powder",
+				image: "./images/baking_powder.png", 
+				unit: "tsp"
+			},
+		"lemon_juice":
+			{
+				name: "lemon juice",
+				image: "./images/lemon_juice.png", 
+				unit: "tbsp"
+			},
+		"asparagus":
+			{
+				name: "asparagus",
+				image: "./images/asparagus.png", 
+				unit: null
+			},
+		"linguine":
+			{
+				name: "linguine",
+				image: "./images/linguine.png", 
+				unit: "lbs"
+			},
+		"garlic":
+			{
+				name: "garlic",
+				image: "./images/garlic.png", 
+				unit: "cloves"
+			},
+		"shrimp":
+			{
+				name: "shrimp",
+				image: "./images/shrimp.png", 
+				unit: "oz"
+			}
+	}

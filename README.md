@@ -1,4 +1,3 @@
 # cookingmamas
 11.127 Cooking Game
-Look I made a change to the readme!
-Hi! 
+By Shilpa Agrawal, Jane He, Ava Soleimany, Hannah Wood, and Kara Brady

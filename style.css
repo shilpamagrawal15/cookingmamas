@@ -1,9 +1,23 @@
+.cabinet-img {
+	height: 80px;
+	width: 80px;
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
 .cabinet-item {
-	height: 150px;
-	width: 150px;
+	width: 32%;
+	margin-left:1px;
+	margin-right:1px;
 }
 
 .input-item {
 	width:30px;
 	height: 25px;
+}
+
+.recipe-well {
+	height:31%;
 }

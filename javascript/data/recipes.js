@@ -9,45 +9,45 @@ var recipes =
 			dish: "Peanut Butter Cookies",
 			serving: 20,
 			ingredients: [
-				{type: "peanut butter", quantity: 2, unit: "cups"},
-				{type: "sugar", quantity: 2, unit: "cups"},
-				{type: "eggs", quantity: 2, unit: null},
-				{type: "baking soda", quantity: 2, unit: "tsp"},
-				{type: "vanilla extract", quantity: 1, unit: "tsp"},
-				{type: "butter", quantity: 4, unit: "tbsp"}
+				{type: "peanut_butter", quantity: 2},
+				{type: "sugar", quantity: 2},
+				{type: "eggs", quantity: 2},
+				{type: "baking_soda", quantity: 2},
+				{type: "vanilla_extract", quantity: 1},
+				{type: "butter", quantity: 4}
 			]
 		},
 		{
 			dish: "Lemon Pound Cake",
 			serving: 10,
 			ingredients: [
-				{type: "all-purpose flour", quantity: 1.5, unit: "cups"},
-				{type: "baking powder", quantity: 1, unit: "tbsp"},
-				{type: "butter", quantity: 8, unit: "tbsp"},
-				{type: "sugar", quantity: 1, unit: "cups"},
-				{type: "eggs", quantity: 4, unit: null},
-				{type: "vanilla extract", quantity: 2, unit: "tsp"},
-				{type: "lemon juice", quantity: 4, unit: "tbsp"}
+				{type: "flour", quantity: 1.5},
+				{type: "baking_powder", quantity: 1},
+				{type: "butter", quantity: 8},
+				{type: "sugar", quantity: 1},
+				{type: "eggs", quantity: 4},
+				{type: "vanilla_extract", quantity: 2},
+				{type: "lemon_juice", quantity: 4}
 			]
 		},
 		{
 			dish: "Sauteed Asparagus",
 			serving: 5,
 			ingredients: [
-				{type: "thin asparagus spears", quantity: 30, unit: null},
-				{type: "lemon juice", quantity: 5, unit: "tbsp"},
-				{type: "butter", quantity: 5, unit: "tbsp"}
+				{type: "asparagus", quantity: 30},
+				{type: "lemon_juice", quantity: 5},
+				{type: "butter", quantity: 5}
 			]
 		},
 		{
 			dish: "Shrimp Linguini",
 			serving: 5,
 			ingredients: [
-				{type: "linguine", quantity: 1, unit: "lbs"},
-				{type: "butter", quantity: 3, unit: "tsp"},
-				{type: "lemon juice", quantity: 1, unit: "tbsp"},
-				{type: "garlic", quantity: 2, unit: "cloves"},
-				{type: "shrimp", quantity: 8, unit: "oz"}
+				{type: "linguine", quantity: 1},
+				{type: "butter", quantity: 3},
+				{type: "lemon_juice", quantity: 1},
+				{type: "garlic", quantity: 2},
+				{type: "shrimp", quantity: 8}
 			]
 		}
 
