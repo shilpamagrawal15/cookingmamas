@@ -8,6 +8,7 @@ var recipes =
 		{
 			dish: "Peanut Butter Cookies",
 			serving: 20,
+			course: "dessert",
 			ingredients: [
 				{type: "peanut_butter", quantity: 2},
 				{type: "sugar", quantity: 2},
@@ -20,6 +21,7 @@ var recipes =
 		{
 			dish: "Lemon Pound Cake",
 			serving: 10,
+			course: "dessert",
 			ingredients: [
 				{type: "flour", quantity: 1.5},
 				{type: "baking_powder", quantity: 1},
@@ -33,6 +35,7 @@ var recipes =
 		{
 			dish: "Sauteed Asparagus",
 			serving: 5,
+			course: "entree",
 			ingredients: [
 				{type: "asparagus", quantity: 30},
 				{type: "lemon_juice", quantity: 5},
@@ -42,6 +45,7 @@ var recipes =
 		{
 			dish: "Shrimp Linguini",
 			serving: 5,
+			course: "entree",
 			ingredients: [
 				{type: "linguine", quantity: 1},
 				{type: "butter", quantity: 3},

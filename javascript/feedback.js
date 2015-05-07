@@ -31,13 +31,13 @@ function generateFeedback(submission) {
 	//		i.e., incorrect # of servings but correct ingredient amounts is an example of incorrect ratio
 	
 	// track whether user has proportions correct for all recipes
-	var correct_proportions = true
+	var correct_proportions = true;
 	for (var i=0; i<recipes.length; i++){
 		// track whether user has proportions correct for this recipe
 		var correct_proportions_recipe = true;
 		var current_dish = recipes[i].dish;
 		var dish_serving = recipes[i].serving;
-		var user_serving =submission[current_dish].servings;
+		var user_serving = submission[current_dish].servings;
 		// only applies to dishes where the user has submitted something for the number of servings
 		if (user_serving !== ""){
 			for (var j=0; j<recipes[i].ingredients.length; j++){
@@ -75,5 +75,83 @@ function generateFeedback(submission) {
 	}
 
 	// determine if servings meet objectives
+	console.log(player_level);
+	var level_solution = levels[player_level].solution;
+	var met_objective = true;
+	var entree_count_solution = 0;
+	var entree_count = 0;
+	var dessert_count_solution = 0;
+	var dessert_count = 0;
+	for (var i=0; i<recipes.length; i++){
+		// var correct_dish = true;
+		var current_dish = recipes[i].dish;
+		var dish_type = recipes[i].course;
+		var user_serving = Number(submission[current_dish].servings);
+		var serving_solution = level_solution[current_dish].servings;
+		var solution_comparator = level_solution[current_dish].comparator;
+		// the different comparators for a solution to a level's objective
+		switch (solution_comparator){
+			case "equal":
+				if (user_serving == ""){
+					if (serving_solution != 0){
+						met_objective = false;
+					}
+				} else {
+					if (user_serving != serving_solution){
+						met_objective = false;
+					}
+				} break;
+			case "greater":
+				if (user_serving == ""){
+					if (serving_solution != 0){
+						met_objective = false;
+					}
+				} else {
+					if (user_serving < serving_solution){
+						met_objective = false;
+					}
+				} break;
+			case "less":
+				if (user_serving == ""){
+					if (serving_solution != 0){
+						met_objective = false;
+					}
+				} else {
+					if (user_serving > serving_solution){
+						met_objective = false;
+					}
+				} break;
+			case "total":
+				if (dish_type == "entree"){
+					if (entree_count_solution == 0){
+						entree_count_solution = serving_solution;
+					}
+					entree_count += user_serving;
+				} else if (dish_type == "dessert"){
+					if (dessert_count_solution == 0){
+						dessert_count_solution = serving_solution;
+					}
+					dessert_count += user_serving;
+				} break;
+
+		}
+	}
+	// for the total case 
+	if (dessert_count_solution != 0) {
+		if (dessert_count < dessert_count_solution){
+			met_objective = false;
+		}
+	} 
+	if (entree_count_solution != 0) {
+		if (entree_count < entree_count_solution){
+			met_objective = false;
+		}
+	}
+
+	// failed to meet objective
+	if (! met_objective){
+		console.log("failed to meet objective!");
+	}
+
 
 }
