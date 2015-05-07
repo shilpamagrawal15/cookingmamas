@@ -16,6 +16,7 @@ $(document).ready(function () {
 			}
 			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: $("#recipe_"+i+"_serving").val()};
 		}
+		console.log(input_obj);
 		// TODO: @ava - call generateFeedback(input_obj)
 	});
 });
