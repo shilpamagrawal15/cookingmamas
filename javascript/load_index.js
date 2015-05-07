@@ -79,5 +79,4 @@ function loadLevel(level) {
 		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><b><span id=cabinet_quantity_'+levels[level].cabinet[i].type+' data-quantity='+levels[level].cabinet[i].quantity+'>'+levels[level].cabinet[i].quantity+"</span></b> "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
-
 }
