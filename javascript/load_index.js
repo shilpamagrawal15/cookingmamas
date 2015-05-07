@@ -1,3 +1,5 @@
+var player_level = null;
+
 $(document).ready(function () {
 	/* load the recipes onto game screen */
 	for (var i=0; i<recipes.length; i++) {
@@ -43,6 +45,7 @@ function loadLevel(level) {
 	// load objective
 	$("#objective").empty();
 	$("#objective").append(levels[level].objective);
+	player_level = level;
 	//load kitchen cabinet items
 	$('#cabinet').empty();
 	for (var i=0; i<levels[level].cabinet.length; i++) {

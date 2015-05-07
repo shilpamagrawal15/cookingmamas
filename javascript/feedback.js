@@ -38,27 +38,38 @@ function generateFeedback(submission) {
 		var current_dish = recipes[i].dish;
 		var dish_serving = recipes[i].serving;
 		var user_serving =submission[current_dish].servings;
-		for (var j=0; j<recipes[i].ingredients.length; j++){
-			// the reference amount and correct ratio
-			var ingredient = recipes[i].ingredients[j].type;
-			var ingredient_amount = recipes[i].ingredients[j].quantity;
-			var correct_ratio = dish_serving / ingredient_amount;
-			// amount of an ingredient the user entered, with ingredient proportion determined by the # of servings user entered
-			var user_amount = submission[current_dish].ingredients[ingredient];
-			var user_ratio = user_serving / user_amount;
-			// check if serving/amount ratio for this ingredient matches the correct proportion
-			if (user_ratio !== correct_ratio){
-				console.log("Incorrect proportions for: " + ingredient);
-				correct_proportions = false;
-				correct_proportions_recipe = false;
+		// only applies to dishes where the user has submitted something for the number of servings
+		if (user_serving !== ""){
+			for (var j=0; j<recipes[i].ingredients.length; j++){
+				// the reference amount and correct ratio
+				var ingredient = recipes[i].ingredients[j].type;
+				var ingredient_amount = recipes[i].ingredients[j].quantity;
+				var correct_ratio = dish_serving / ingredient_amount;
+				// amount of an ingredient the user entered, with ingredient proportion determined by the # of servings user entered
+				var user_amount = submission[current_dish].ingredients[ingredient];
+				if (user_serving != 0 && user_amount != 0){
+					var user_ratio = user_serving / user_amount;
+					// check if serving/amount ratio for this ingredient matches the correct proportion
+					if (user_ratio !== correct_ratio){
+						console.log("Incorrect proportions for: " + ingredient);
+						correct_proportions = false;
+						correct_proportions_recipe = false;
+					}
+				} else if ((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)){
+					console.log("Incorrect proportions for: " + ingredient);
+					correct_proportions = false;
+					correct_proportions_recipe = false;
+				}
+			}
+
+			// correct ratios for all ingredients in this dish? log to console
+			if (correct_proportions_recipe){
+				console.log("correct proportions for: " + current_dish);
 			}
 		}
-		// correct ratios for all ingredients in this dish? 
-		if (correct_proportions_recipe){
-			console.log("correct proportions for: " + current_dish);
-		}
+
 	} 
-	// correct ratios for all dishes?
+	// correct ratios for all dishes? log to console
 	if (correct_proportions) {
 		console.log("correct proportions!");
 	}
