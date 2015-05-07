@@ -36,8 +36,8 @@ def proportions(user_recipe):
 # this will be dependent upon how we represent the level objectives/constraints
 # will take in the user_recipe and the level as inputs
 --> get how many servings of each dish are made
---> determine how many servings of entree and dessert are made
---> check if these satisfy constraints
+--> check against answer
+--> ensure that they are not exhausting resources. 
 
 # the proportions should be checked first, then the level objectives. if user has messed up proportions, they should get feedback on that, then try again, maybe next time they get the proportions but don't meet objective. 
 
