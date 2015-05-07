@@ -1,6 +1,18 @@
 var player_level = null;
 
 $(document).ready(function () {
+	loadGameScreen();
+});
+
+/* reset the recipes and input fields */
+function loadGameScreen() {
+	/* reset all the fields */
+	for (var i=0; i<recipes.length; i++) {
+		var static_div_name = "#recipe_" + i + "_static";
+		var input_div_name = "#recipe_" + i + "_input";
+		$(static_div_name).html("");
+		$(input_div_name).html("");
+	}
 	/* load the recipes onto game screen */
 	for (var i=0; i<recipes.length; i++) {
 		// static recipe header
@@ -45,10 +57,11 @@ $(document).ready(function () {
 			});
 		}
 	}
-});
+}
 
 /* load the level's objective and cabinet items */
 function loadLevel(level) {
+	loadGameScreen();
 	// load objective
 	$("#objective").empty();
 	$("#objective").append(levels[level].objective);

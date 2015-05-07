@@ -17,6 +17,7 @@ $(document).ready(function () {
 			// input_ingredients is a javascript object that has ingredient_name --> quantity 
 			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: $("#recipe_"+i+"_serving").val()};
 		}
+		console.log(input_obj);
 		// TODO: @ava - call generateFeedback(input_obj)
 		console.log(input_obj);
 		generateFeedback(input_obj);
