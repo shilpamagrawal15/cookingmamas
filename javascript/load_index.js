@@ -34,7 +34,7 @@ $(document).ready(function () {
 				var recipe_quantity_current = Number(this.getAttribute('data-quantity'));
 				var recipe_quantity_input = Number(this.value);
 				var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
-				if ((cabinet_quantity_current - recipe_quantity_input) >= 0) {
+				if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
 					var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
 					$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);
 					$(cabinet_quantity_id).html(cabinet_quantity_new);
