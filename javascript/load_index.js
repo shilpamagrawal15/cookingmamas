@@ -13,7 +13,7 @@ $(document).ready(function () {
 		var ingredients_list = recipes[i].ingredients;
 		for (var j=0; j<ingredients_list.length;j++){
 			var static_ingredient = recipes[i].ingredients[j].quantity;
-			var input_ingredient = '<input type="text" data-value="'+ recipes[i].ingredients[j].type +'" id="rec_'+i+'_ing_'+j+'" class="input-item">';
+			var input_ingredient = '<input type="text" data-value="'+ recipes[i].ingredients[j].type +'" data-quantity=0 id="rec_'+i+'_ing_'+j+'" class="input-item">';
 			if (ingredients[recipes[i].ingredients[j].type].unit != null) {
 				input_ingredient = input_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
 				static_ingredient = static_ingredient + " " + ingredients[recipes[i].ingredients[j].type].unit;
@@ -30,6 +30,7 @@ $(document).ready(function () {
 			var input_id = "#rec_"+i+"_ing_"+j;
 			$(input_id).keyup(function(){
 				var ingredient = this.getAttribute('data-value');
+				
 				//TODO: @jane - this is where you should write your code to handle events on each input
 				//	use the ingredient variable defined above to associate it with the cabinet quantity
 				//	note: cabinet quanitity ids are cabinet_quanitity_ingredient where _ingredient is the variable above
@@ -53,7 +54,7 @@ function loadLevel(level) {
 		if (ingredients[levels[level].cabinet[i].type].unit !== null) {
 			unit = ingredients[levels[level].cabinet[i].type].unit;
 		}
-		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><span id=cabinet_quantity_'+levels[level].cabinet[i].type+'><b>'+levels[level].cabinet[i].quantity +"</b></span> "+unit+'</span>');
+		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><span id=cabinet_quantity_'+levels[level].cabinet[i].type+' data-quantity='+levels[level].cabinet[i].quantity+'><b>'+levels[level].cabinet[i].quantity+"</b></span> "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
 }
