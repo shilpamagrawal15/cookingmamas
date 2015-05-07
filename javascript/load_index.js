@@ -1,8 +1,3 @@
-var ingredients_used_list = levels[level].cabinet; 
-	for (var i=0; i<levels[level].cabinet.length; i++) {
-		// initialize number of ingredients used to 0
-		ingredients_used_list[i].quantity = 0
-
 $(document).ready(function () {
 	/* load the recipes onto game screen */
 	for (var i=0; i<recipes.length; i++) {
@@ -34,12 +29,17 @@ $(document).ready(function () {
 		for (var j=0; j<recipes[i].ingredients.length; j++) {
 			var input_id = "#rec_"+i+"_ing_"+j;
 			$(input_id).keyup(function(){
-				console.log(input_id)
 				var ingredient = this.getAttribute('data-value');
-				
-				//TODO: @jane - this is where you should write your code to handle events on each input
-				//	use the ingredient variable defined above to associate it with the cabinet quantity
-				//	note: cabinet quanitity ids are cabinet_quanitity_ingredient where _ingredient is the variable above
+				var cabinet_quantity_id = "#cabinet_quantity_" + ingredient;
+				var recipe_quantity_current = Number(this.getAttribute('data-quantity'));
+				var recipe_quantity_input = Number(this.value);
+				var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
+				if ((cabinet_quantity_current - recipe_quantity_input) >= 0) {
+					var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
+					$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);
+					$(cabinet_quantity_id).html(cabinet_quantity_new);
+					this.setAttribute("data-quantity", recipe_quantity_input);
+				}
 			});
 		}
 	}
@@ -60,22 +60,8 @@ function loadLevel(level) {
 		if (ingredients[levels[level].cabinet[i].type].unit !== null) {
 			unit = ingredients[levels[level].cabinet[i].type].unit;
 		}
-		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><span id=cabinet_quantity_'+levels[level].cabinet[i].type+' data-quantity='+levels[level].cabinet[i].quantity+'><b>'+levels[level].cabinet[i].quantity+"</b></span> "+unit+'</span>');
+		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><b><span id=cabinet_quantity_'+levels[level].cabinet[i].type+' data-quantity='+levels[level].cabinet[i].quantity+'>'+levels[level].cabinet[i].quantity+"</span></b> "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
 
 }
-
-// /* update the remaining amount of each ingredient in the cabinet using listeners */
-// function updateIngUsed(input_ingredient) {
-// 	var ing_type = input_ingredient.getAttribute('data-value');
-// 	var amnt_ing_used = input_ingredient.val() //HOW DO I GET THE VALUE OF THE INPUT?!
-// 	for (var i=0; i<recipes.length;i++) {
-// 		for (var j=0; j<recipes[i].ingredients.length; j++) {
-// 			if (recipes[i].ingredients[j].type == ing_type) {
-// 				amnt_ing_used += ("#rec_"+i+"_ing_"+j).val() //HOW DO I GET THE VALUE OF THE INPUT?!
-// 			}
-// 		}
-// 	}
-// 	ingredients_used_list[ingredients_used_list.indexOf(ing_type)].quantity = amnt_ing_used
-// }
