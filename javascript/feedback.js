@@ -4,6 +4,7 @@
 // @param submission: JavaScript object containing information from player's submitted recipes, 
 //     where ingredients & proportions used in a given recipe are specified within another JavaScript object
 
+var feedback_display = null;
 $(document).ready(function () {
 	//submitting the answer and converting it into an object
 	$("#cookBtn").click(function(){
@@ -18,11 +19,19 @@ $(document).ready(function () {
 			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: $("#recipe_"+i+"_serving").val()};
 		}
 		// TODO: @ava - call generateFeedback(input_obj)
-		console.log(feedbackText[[true, true]]);
-		var feedback_display = generateFeedback(input_obj);		
-		console.log(feedback_display);
+		feedback_display = generateFeedback(input_obj);	
+		$(".modal-body").text(feedback_display);	
 	});
 });
+// $('#feedback_modal').on('show.bs.modal', function (event) {
+//   var button = $(event.relatedTarget); // Button that triggered the modal
+//   //var recipient = button.data('whatever') // Extract info from data-* attributes
+//   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+//   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+//   var modal = $(this);
+//   console.log(feedback_display);
+//   modal.find('.modal-body').text(feedback_display);
+// });
 
 // TODO: @ava
 function generateFeedback(submission) {
@@ -156,8 +165,8 @@ function generateFeedback(submission) {
 		console.log("congrats on cooking!");
 	}
 
-	var feedback_scenario = [correct_proportions, met_objective];
-	var feedback_display = feedback_text[feedback_scenario];
+	var feedback_scenario = correct_proportions.toString() + ", " + met_objective.toString();
+	var feedback_display = feedbackText[feedback_scenario];
 	return feedback_display;
 
 

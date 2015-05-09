@@ -14,6 +14,7 @@
 		<script src="./javascript/data/levels.js"></script>
 		<script src="./javascript/data/ingredients.js"></script>
 		<script src="./javascript/data/dishes.js"></script>
+		<script src="./javascript/data/feedbackText.js"></script>
 		<script src="./javascript/feedback.js"></script>
 	</head>
 	<body>
@@ -74,7 +75,7 @@
 		  		</div>
 		  		<div class="col-md-6">
 		  			<div id="recipe_3_input" class="well well-sm recipe-well"></div>
-		  			<button id="cookBtn" class="btn btn-primary btn-lg" type="button"> Cook! </button>
+		  			<button id="cookBtn" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#feedback_modal"> Cook! </button>
 		  			<!-- data-toggle="modal" data-target="#feedback_modal -->
 		  		</div>
 		  	</div>
@@ -88,12 +89,9 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myRecipe">Your Recipe!</h4>
+	        <h4 class="modal-title" id="myRecipe">From Chef Klopfer:</h4>
 	      </div>
 	      <div class="modal-body">
-	        Something about cooking goes here!
-	        Yay cooking!
-	        Yay cookingmamas!
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
