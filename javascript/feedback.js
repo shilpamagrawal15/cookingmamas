@@ -152,6 +152,8 @@ function generateFeedback(submission) {
 	// failed to meet objective
 	if (! met_objective){
 		console.log("failed to meet objective!");
+	} else {
+		console.log("congrats on cooking!");
 	}
 
 
