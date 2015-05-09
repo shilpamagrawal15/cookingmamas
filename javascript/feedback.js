@@ -17,10 +17,10 @@ $(document).ready(function () {
 			// input_ingredients is a javascript object that has ingredient_name --> quantity 
 			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: $("#recipe_"+i+"_serving").val()};
 		}
-		console.log(input_obj);
 		// TODO: @ava - call generateFeedback(input_obj)
-		console.log(input_obj);
-		generateFeedback(input_obj);
+		console.log(feedbackText[[true, true]]);
+		var feedback_display = generateFeedback(input_obj);		
+		console.log(feedback_display);
 	});
 });
 
@@ -155,6 +155,10 @@ function generateFeedback(submission) {
 	} else {
 		console.log("congrats on cooking!");
 	}
+
+	var feedback_scenario = [correct_proportions, met_objective];
+	var feedback_display = feedback_text[feedback_scenario];
+	return feedback_display;
 
 
 }
