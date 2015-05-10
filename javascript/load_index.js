@@ -47,12 +47,32 @@ function loadGameScreen() {
 				var cabinet_quantity_id = "#cabinet_quantity_" + ingredient;
 				var recipe_quantity_current = Number(this.getAttribute('data-quantity'));
 				var recipe_quantity_input = Number(this.value);
+				console.log(recipe_quantity_input);
 				var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
-				if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
-					var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
-					$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);
-					$(cabinet_quantity_id).html(cabinet_quantity_new);
-					this.setAttribute("data-quantity", recipe_quantity_input);
+				if (isNaN(recipe_quantity_input)){
+					$(cabinet_quantity_id).attr("data-quantity", $(cabinet_quantity_id).attr('data-quantity-original'));
+					$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
+					this.setAttribute("data-quantity", 0);
+					$(this).css('background-color', 'red');
+				}
+				else {
+					if (recipe_quantity_input > $(cabinet_quantity_id).attr('data-quantity-original')){
+						$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
+						$(this).css('background-color', 'red');
+					}
+					if (recipe_quantity_input == 0) {
+						$(cabinet_quantity_id).attr("data-quantity", $(cabinet_quantity_id).attr('data-quantity-original'));
+						$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
+						this.setAttribute("data-quantity", 0);
+						$(this).css('background-color', 'white');
+					}
+					else if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
+						var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
+						$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);
+						$(cabinet_quantity_id).html(cabinet_quantity_new);
+						this.setAttribute("data-quantity", recipe_quantity_input);
+						$(this).css('background-color', 'white');
+					}
 				}
 			});
 		}
@@ -76,7 +96,7 @@ function loadLevel(level) {
 		if (ingredients[levels[level].cabinet[i].type].unit !== null) {
 			unit = ingredients[levels[level].cabinet[i].type].unit;
 		}
-		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><b><span id=cabinet_quantity_'+levels[level].cabinet[i].type+' data-quantity='+levels[level].cabinet[i].quantity+'>'+levels[level].cabinet[i].quantity+"</span></b> "+unit+'</span>');
+		$(ingredient_well).append('<span>'+ingredients[levels[level].cabinet[i].type].name+':<br><b><span id=cabinet_quantity_'+levels[level].cabinet[i].type+' data-quantity-original='+levels[level].cabinet[i].quantity+' data-quantity='+levels[level].cabinet[i].quantity+'>'+levels[level].cabinet[i].quantity+"</span></b> "+unit+'</span>');
 		$('#cabinet').append(ingredient_well);
 	}
 }
