@@ -4,7 +4,7 @@
 // @param submission: JavaScript object containing information from player's submitted recipes, 
 //     where ingredients & proportions used in a given recipe are specified within another JavaScript object
 
-var feedback_display = null;
+
 $(document).ready(function () {
 	//submitting the answer and converting it into an object
 	$("#cookBtn").click(function(){
@@ -39,6 +39,8 @@ $(document).ready(function () {
 
 // TODO: @ava
 function generateFeedback(submission) {
+	var feedback_display = null;
+	var incorrect_dishes = []
 	// insert comparator and generating feedback function
 
 	// determine if correct proportions. inherently determines if ingredient amounts match the number of servings 
@@ -46,9 +48,11 @@ function generateFeedback(submission) {
 	
 	// track whether user has proportions correct for all recipes
 	var correct_proportions = true;
+	var no_constant_add = true;
 	for (var i=0; i<recipes.length; i++){
 		// track whether user has proportions correct for this recipe
 		var correct_proportions_recipe = true;
+		var difference = null;
 		var current_dish = recipes[i].dish;
 		var dish_serving = recipes[i].serving;
 		var user_serving = submission[current_dish].servings;
@@ -62,24 +66,33 @@ function generateFeedback(submission) {
 				// amount of an ingredient the user entered, with ingredient proportion determined by the # of servings user entered
 				var user_amount = submission[current_dish].ingredients[ingredient];
 				if (user_serving != 0 && user_amount != 0){
+					var current_difference = user_amount - ingredient_amount;
 					var user_ratio = user_serving / user_amount;
+					if (difference == null){
+						difference = user_amount - ingredient_amount;
+					} else {
+						if (current_difference == difference && difference != 0 && user_ratio != correct_ratio){
+							no_constant_add = false;
+						} else if (current_difference != difference && difference != 0 && user_ratio != correct_ratio){
+							no_constant_add = true;
+						}
+					}
+
 					// check if serving/amount ratio for this ingredient matches the correct proportion
 					if (user_ratio !== correct_ratio){
-						console.log("Incorrect proportions for: " + ingredient);
 						correct_proportions = false;
 						correct_proportions_recipe = false;
 					}
 				} else if ((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)){
-					console.log("Incorrect proportions for: " + ingredient);
 					correct_proportions = false;
 					correct_proportions_recipe = false;
 				}
 			}
 
-			// correct ratios for all ingredients in this dish? log to console
-			if (correct_proportions_recipe){
-				console.log("correct proportions for: " + current_dish);
-			}
+			// incorrect proportions for ingredients in dish
+			if (! correct_proportions_recipe){
+				incorrect_dishes.push(current_dish);
+			} 
 		}
 
 	} 
@@ -146,7 +159,10 @@ function generateFeedback(submission) {
 						dessert_count_solution = serving_solution;
 					}
 					dessert_count += user_serving;
-				} break;
+				} 
+				console.log(entree_count_solution);
+				console.log(entree_count);
+				break;
 
 		}
 	}
@@ -170,7 +186,20 @@ function generateFeedback(submission) {
 	}
 
 	var feedback_scenario = correct_proportions.toString() + ", " + met_objective.toString();
-	var feedback_display = feedbackText[feedback_scenario];
+	if (player_level == 2){
+		feedback_scenario += ", " + no_constant_add.toString();
+		console.log(feedback_scenario);
+	}
+	var feedback_display = feedbackText[player_level-1][feedback_scenario];
+	if (player_level == 2 && ! correct_proportions){
+		for (var i=0; i<incorrect_dishes.length - 1; i++){
+			feedback_display += " " incorrect_dishes[i] + ",";
+		} feedback_display += " " + incorrect_dishes[incorrect_dishes.length - 1];
+	}
+	
+	// if (! did_scale){
+	//	feedback_display += "remember to scale!"
+	// }
 	return feedback_display;
 
 

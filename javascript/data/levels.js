@@ -90,7 +90,7 @@ var levels =
 						"Peanut Butter Cookies":
 							{
 								servings: 20,
-								comparator: "equal",
+								comparator: "total",
 								ingredients: 
 									{
 										// do you need this?
@@ -98,8 +98,8 @@ var levels =
 							},
 						"Lemon Pound Cake":
 							{
-								servings: 0,
-								comparator: "equal",
+								servings: 20,
+								comparator: "total",
 								ingredients: 
 									{
 										// do you need this?
@@ -107,8 +107,8 @@ var levels =
 							},
 						"Sauteed Asparagus":
 							{
-								servings: 0,
-								comparator: "equal",
+								servings: 20,
+								comparator: "total",
 								ingredients: 
 									{
 										// do you need this?
@@ -117,7 +117,7 @@ var levels =
 						"Shrimp Linguini":
 							{
 								servings: 20,
-								comparator: "equal",
+								comparator: "total",
 								ingredients: 
 									{
 										// do you need this?
