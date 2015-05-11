@@ -47,7 +47,6 @@ function loadGameScreen() {
 				var cabinet_quantity_id = "#cabinet_quantity_" + ingredient;
 				var recipe_quantity_current = Number(this.getAttribute('data-quantity'));
 				var recipe_quantity_input = Number(this.value);
-				console.log(recipe_quantity_input);
 				var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
 				if (isNaN(recipe_quantity_input)){
 					$(cabinet_quantity_id).attr("data-quantity", $(cabinet_quantity_id).attr('data-quantity-original'));
@@ -86,6 +85,9 @@ function loadLevel(level) {
 	$("#objective").empty();
 	$("#objective").append(levels[level].objective);
 	player_level = level;
+	// write level number on screen
+	$("#level-number").empty();
+	$("#level-number").html(level);
 	//load kitchen cabinet items
 	$('#cabinet').empty();
 	for (var i=0; i<levels[level].cabinet.length; i++) {
