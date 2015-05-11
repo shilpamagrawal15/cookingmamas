@@ -13,12 +13,16 @@ $(document).ready(function () {
 			var input_ingredients = {};
 			for (var j=0; j<recipes[i].ingredients.length;j++) {
 				var input_id = "#rec_"+i+"_ing_"+j;
-				input_ingredients[recipes[i].ingredients[j].type] = $(input_id).val();
+				var num_ingredients = $(input_id).val();
+				if (num_ingredients == "") { num_ingredients = 0; }
+				input_ingredients[recipes[i].ingredients[j].type] = num_ingredients;
 			}
 			// input_ingredients is a javascript object that has ingredient_name --> quantity 
-			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: $("#recipe_"+i+"_serving").val()};
+			var num_servings = $("#recipe_"+i+"_serving").val();
+			if (num_servings == "") { num_servings = 0; }
+			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: num_servings};
 		}
-		// TODO: @ava - call generateFeedback(input_obj)
+		console.log(input_obj);
 		feedback_display = generateFeedback(input_obj);	
 		$(".modal-body").text(feedback_display);	
 	});
