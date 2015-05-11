@@ -193,7 +193,7 @@ function generateFeedback(submission) {
 	var feedback_display = feedbackText[player_level-1][feedback_scenario];
 	if (player_level == 2 && ! correct_proportions){
 		for (var i=0; i<incorrect_dishes.length - 1; i++){
-			feedback_display += " " incorrect_dishes[i] + ",";
+			feedback_display += " " + incorrect_dishes[i] + ",";
 		} feedback_display += " " + incorrect_dishes[incorrect_dishes.length - 1];
 	}
 	
