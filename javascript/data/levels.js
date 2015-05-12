@@ -184,4 +184,48 @@ var levels =
 							}
 					}
 			}
+		4: 
+			{
+				objective: "Your catering manager has taught you that it’s very important to bring in profit for the company. You’ve learned to think about the business’ potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You'll charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You'll charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
+				cabinet:
+					[
+						{type: "peanut_butter", quantity: 0},
+						{type: "sugar", quantity: 7},
+						{type: "eggs", quantity: 9},
+						{type: "baking_soda", quantity: 0},
+						{type: "vanilla_extract", quantity: 0},
+						{type: "butter", quantity: 240},
+						{type: "flour", quantity: 4},
+						{type: "baking_powder", quantity: 15},
+						{type: "lemon_juice", quantity: 3.5},
+						{type: "asparagus", quantity: 0},
+						{type: "linguine", quantity: 0},
+						{type: "garlic", quantity: 0},
+						{type: "shrimp", quantity: 80},
+						{type: "coconut", quantity: 10},
+						{type: "vegetable oil", quantity: 15},
+						{type: "beer", quantity: 4.33}
+					],
+				store:
+					[
+					{type: "shrimp", cost: 15, per_unit: 1},
+					{type: "cocunut", cost: 18, per_unit: 6},
+					{type: "eggs", cost: 4, per_unit: 6},
+					{type: "flour", cost: 3, per_unit: 4},
+					{type: "vegetable oil", cost: 7, per_unit: 16},
+					{type: "beer", cost: 5, per_unit: 1.5}
+					],
+				solution: 
+					{
+						"Lemon Bars":
+							{
+								servings: 60,
+								comparator: "greater",
+								ingredients: 
+									{
+										// do you need this?
+									}
+							},
+					}
+			}
 	}
