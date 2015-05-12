@@ -9,7 +9,7 @@ var levels =
 	{
 		1: 
 			{
-				objective: "Make enough entrees for 25 people. Make enough dessert for 40 people. If you choose to make cake, you must make the entire cake (that serves 10). You cannot prepare part of a cake",
+				objective: "Your client, Richard Richards, is hosting a dinner party for his neighborhood book club. He wants enough entrees for 25 guests (you can make more than 25 and still be correct) and enough dessert for 40 guests. Keep in mind that if you make cake for dessert, you have to make entire cakes. Serve up amazing food for Richard Richards, please Chef Klopfer with delectable recipes, and you'll be well on your way!",
 				cabinet:
 					[
 						{type: "peanut_butter", quantity: 5},
@@ -68,7 +68,7 @@ var levels =
 			},
 		2: 
 			{
-				objective: "Make enough entrees for 20 people. Make enough dessert for 20 people. If you choose to make cake, you must make the entire cake (that serves 10). You cannot prepare part of a cake",
+				objective: "Your client, Maria Marks, is throwing a graduation party for her daughter, Melissa Marks. She wants enough entrees for 20 guests and enough dessert for 20 guests. Keep in mind that your pantry has changed, and that if you make cake for dessert, you have to make entire cakes. Chef Klopfer still demands delectable dishes!",
 				cabinet:
 					[
 						{type: "peanut_butter", quantity: 5},
@@ -127,7 +127,7 @@ var levels =
 			},
 		3: 
 			{
-				objective: "Make enough entrees for 27 people. Make enough dessert for 27 people. 12 of the 27 people are vegetarian. 2 of the 27 are allergic to peanuts. If you choose to make cake, you must make the entire cake (that serves 10). You cannot prepare part of a cake",
+				objective: "You client, Lisa Li, is hosting a get-together for her office. She wants enough entrees for 27 guests and enough dessert for 27 guests, but 12 out of the 27 guests are vegetarians and 2 of the 27 are allergic to peanuts. You must make sure that the vegetarians have vegetarian options and the peanut allergy guest have peanut-free options. Keep in mind that your pantry has changed, and that if you make cake for dessert, you have to make entire cakes. Ms. Li is one of our best clients, so your dishes should be delightful as always!",
 				cabinet:
 					[
 						{type: "peanut_butter", quantity: 5},
@@ -186,7 +186,7 @@ var levels =
 			},
 		4: 
 			{
-				objective: "Your catering manager has taught you that it’s very important to bring in profit for the company. You’ve learned to think about the business’ potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You'll charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You'll charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
+				objective: "Chef Klopfer has taught you that it’s very important to bring in profit for the company. You’ve learned to think about the business’ potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You'll charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You'll charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
 				cabinet:
 					[
 						{type: "peanut_butter", quantity: 0},
