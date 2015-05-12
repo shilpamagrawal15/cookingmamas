@@ -62,12 +62,12 @@ function generateFeedback(submission) {
 				// the reference amount and correct ratio
 				var ingredient = recipes[i].ingredients[j].type;
 				var ingredient_amount = recipes[i].ingredients[j].quantity;
-				var correct_ratio = dish_serving / ingredient_amount;
+				var correct_ratio = (dish_serving / ingredient_amount).toFixed(14);
 				// amount of an ingredient the user entered, with ingredient proportion determined by the # of servings user entered
 				var user_amount = submission[current_dish].ingredients[ingredient];
 				if (user_serving != 0 && user_amount != 0){
 					var current_difference = user_amount - ingredient_amount;
-					var user_ratio = user_serving / user_amount;
+					var user_ratio = (user_serving / user_amount).toFixed(14);
 					if (difference == null){
 						difference = user_amount - ingredient_amount;
 					} else {
@@ -82,6 +82,11 @@ function generateFeedback(submission) {
 					if (user_ratio !== correct_ratio){
 						correct_proportions = false;
 						correct_proportions_recipe = false;
+						console.log("Incorrect proportions for:" + ingredient + " in " + current_dish);
+						console.log(user_ratio);
+						console.log(correct_ratio);
+						console.log(user_amount);
+						console.log(ingredient_amount);
 					}
 				} else if ((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)){
 					correct_proportions = false;

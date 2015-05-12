@@ -30,7 +30,7 @@ var levels =
 					{
 						"Peanut Butter Cookies":
 							{
-								servings: 23,
+								servings: 40,
 								comparator: "total",
 								ingredients: 
 									{
@@ -39,7 +39,7 @@ var levels =
 							},
 						"Lemon Pound Cake":
 							{
-								servings: 23,
+								servings: 40,
 								comparator: "total",
 								ingredients: 
 									{
@@ -48,7 +48,7 @@ var levels =
 							},
 						"Sauteed Asparagus":
 							{
-								servings: 40,
+								servings: 23,
 								comparator: "total",
 								ingredients: 
 									{
@@ -57,7 +57,7 @@ var levels =
 							},
 						"Shrimp Linguini":
 							{
-								servings: 40,
+								servings: 23,
 								comparator: "total",
 								ingredients: 
 									{
