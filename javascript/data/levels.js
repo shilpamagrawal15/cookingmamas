@@ -208,12 +208,12 @@ var levels =
 					],
 				store:
 					[
-					{type: "shrimp", cost: 15, per_unit: 1},
-					{type: "cocunut", cost: 18, per_unit: 6},
-					{type: "eggs", cost: 4, per_unit: 6},
-					{type: "flour", cost: 3, per_unit: 4},
-					{type: "vegetable oil", cost: 7, per_unit: 16},
-					{type: "beer", cost: 5, per_unit: 1.5}
+					{type: "shrimp", cost_per_unit: 15, amount_per_unit: 1},
+					{type: "cocunut", cost_per_unit: 18, amount_per_unit: 6},
+					{type: "eggs", cost_per_unit: 4, amount_per_unit: 6},
+					{type: "flour", cost_per_unit: 3, amount_per_unit: 4},
+					{type: "vegetable oil", cost_per_unit: 7, amount_per_unit: 16},
+					{type: "beer", cost_per_unit: 5, amount_per_unit: 1.5}
 					],
 				solution: 
 					{
