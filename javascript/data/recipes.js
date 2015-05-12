@@ -53,6 +53,33 @@ var recipes =
 				{type: "garlic", quantity: 2},
 				{type: "shrimp", quantity: 8}
 			]
+		},
+		{
+			dish: "Lemon Bars",
+			serving: 16,
+			course: "dessert",
+			ingredients: [
+				{type: "butter", quantity: 8},
+				{type: "lemon_juice", quantity: 0.5},
+				{type: "eggs", quantity: 2},
+				{type: "flour", quantity: 0.67},
+				{type: "sugar", quantity: 1},
+				{type: "baking_powder", quantity: 0.25}
+			]
+		},
+		{
+			dish: "Coconut Shrimp",
+			serving: 4,
+			course: "entree",
+			ingredients: [
+				{type: "shrimp", quantity: 16},
+				{type: "coconut", quantity: 2},
+				{type: "eggs", quantity: 1},
+				{type: "flour", quantity: 0.5},
+				{type: "baking_powder", quantity: 1.5},
+				{type: "vegetable_oil", quantity: 3},
+				{type: "beer", quantity: 0.67}
+			]
 		}
 
 	];

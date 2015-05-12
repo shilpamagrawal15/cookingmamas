@@ -78,5 +78,23 @@ var ingredients =
 				name: "shrimp",
 				image: "./images/shrimp.png", 
 				unit: "oz"
+			},
+		"coconut":
+			{
+				name: "coconut",
+				image: "./images/coconut.png",
+				unit: "cups"
+			},
+		"vegetable_oil":
+			{
+				name: "vegetable oil",
+				image: "./images/vegetable_oil.png",
+				unit: "cups"
+			},
+		"beer":
+			{
+				name: "beer",
+				image: "./images/beer.png",
+				unit: "cups:"
 			}
 	}
