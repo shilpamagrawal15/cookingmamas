@@ -9,7 +9,7 @@ var levels =
 	{
 		1: 
 			{
-				objective: "Make enough entrees for 23 people. Make enough dessert for 40 people. If you choose to make cake, you must make the entire cake (that serves 10). You cannot prepare part of a cake",
+				objective: "Make enough entrees for 25 people. Make enough dessert for 40 people. If you choose to make cake, you must make the entire cake (that serves 10). You cannot prepare part of a cake",
 				cabinet:
 					[
 						{type: "peanut_butter", quantity: 5},
@@ -48,7 +48,7 @@ var levels =
 							},
 						"Sauteed Asparagus":
 							{
-								servings: 23,
+								servings: 25,
 								comparator: "total",
 								ingredients: 
 									{
@@ -57,7 +57,7 @@ var levels =
 							},
 						"Shrimp Linguini":
 							{
-								servings: 23,
+								servings: 25,
 								comparator: "total",
 								ingredients: 
 									{
