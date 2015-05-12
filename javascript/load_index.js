@@ -59,12 +59,12 @@ function loadGameScreen() {
 						$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
 						$(this).css('background-color', 'red');
 					}
-					if (recipe_quantity_input == 0) {
-						$(cabinet_quantity_id).attr("data-quantity", $(cabinet_quantity_id).attr('data-quantity-original'));
-						$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
-						this.setAttribute("data-quantity", 0);
-						$(this).css('background-color', 'white');
-					}
+					// if (recipe_quantity_input == 0) {
+					// 	$(cabinet_quantity_id).attr("data-quantity", $(cabinet_quantity_id).attr('data-quantity-original'));
+					// 	$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
+					// 	this.setAttribute("data-quantity", 0);
+					// 	$(this).css('background-color', 'white');
+					// }
 					else if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
 						var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
 						$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);

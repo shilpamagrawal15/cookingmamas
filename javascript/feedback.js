@@ -206,6 +206,38 @@ function generateFeedback(submission) {
 	//	feedback_display += "remember to scale!"
 	// }
 	return feedback_display;
-
-
 }
+
+
+
+// {
+// 	"Lemon Pound Cake": 
+// 		{
+// 			Servings: ,
+// 			Total Bill: ,
+// 			Ingredients: 
+// 				{
+// 					"flour": ,
+// 					...
+// 				}
+// 		},
+// 	"Extravagant Entree":  // what is this called?
+// 		{
+// 			Servings: ,
+// 			Total Bill: ,
+// 			Ingredients:
+// 				{
+// 					"flour": ,
+// 					...
+// 				}
+// 		},
+// 	"Store":
+// 		{
+// 			Total Cost: ,
+// 			Items:
+// 				{
+// 					"flour": ,
+// 					...
+// 				}
+// 		}
+// }
