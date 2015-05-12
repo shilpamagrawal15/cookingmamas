@@ -72,7 +72,7 @@ var recipes =
 			serving: 4,
 			course: "entree",
 			ingredients: [
-				{type: "shrimp", quantity: 1},
+				{type: "shrimp", quantity: 16},
 				{type: "coconut", quantity: 2},
 				{type: "eggs", quantity: 1},
 				{type: "flour", quantity: 0.5},

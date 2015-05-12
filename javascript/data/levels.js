@@ -194,7 +194,7 @@ var levels =
 						{type: "eggs", quantity: 9},
 						{type: "baking_soda", quantity: 0},
 						{type: "vanilla_extract", quantity: 0},
-						{type: "butter", quantity: 240},
+						{type: "butter", quantity: 48},
 						{type: "flour", quantity: 4},
 						{type: "baking_powder", quantity: 15},
 						{type: "lemon_juice", quantity: 3.5},
@@ -208,7 +208,7 @@ var levels =
 					],
 				store:
 					[
-					{type: "shrimp", cost_per_unit: 15, amount_per_unit: 1},
+					{type: "shrimp", cost_per_unit: 15, amount_per_unit: 16},
 					{type: "cocunut", cost_per_unit: 18, amount_per_unit: 6},
 					{type: "eggs", cost_per_unit: 4, amount_per_unit: 6},
 					{type: "flour", cost_per_unit: 3, amount_per_unit: 4},
