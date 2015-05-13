@@ -186,7 +186,7 @@ var levels =
 			},
 		4: 
 			{
-				objective: "Chef Klopfer has taught you that it’s very important to bring in profit for the company. You’ve learned to think about the business’ potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You'll charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You'll charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
+				objective: "Chef Klopfer has taught you that it is very important to bring in profit for the company. You have learned to think about the potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You will charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You will charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
 				cabinet:
 					[
 						{type: "peanut_butter", quantity: 0},
@@ -208,12 +208,12 @@ var levels =
 					],
 				store:
 					[
-					{type: "shrimp", cost_per_unit: 15, amount_per_unit: 16},
-					{type: "cocunut", cost_per_unit: 18, amount_per_unit: 6},
-					{type: "eggs", cost_per_unit: 4, amount_per_unit: 6},
-					{type: "flour", cost_per_unit: 3, amount_per_unit: 4},
-					{type: "vegetable oil", cost_per_unit: 7, amount_per_unit: 16},
-					{type: "beer", cost_per_unit: 5, amount_per_unit: 1.5}
+						{type: "shrimp", cost_per_unit: 15, amount_per_unit: 16},
+						{type: "cocunut", cost_per_unit: 18, amount_per_unit: 6},
+						{type: "eggs", cost_per_unit: 4, amount_per_unit: 6},
+						{type: "flour", cost_per_unit: 3, amount_per_unit: 4},
+						{type: "vegetable oil", cost_per_unit: 7, amount_per_unit: 16},
+						{type: "beer", cost_per_unit: 5, amount_per_unit: 1.5}
 					],
 				solution: 
 					{

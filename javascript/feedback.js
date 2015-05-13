@@ -23,8 +23,9 @@ $(document).ready(function () {
 			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: num_servings};
 		}
 		console.log(input_obj);
-		feedback_display = generateFeedback(input_obj);	
-		$(".modal-body").text(feedback_display);	
+		feedback_display = generateFeedback(input_obj);
+		$("#myRecipe").text("From Chef Klopfer:");
+		$("#feedback_modal_body").text(feedback_display);	
 	});
 });
 // $('#feedback_modal').on('show.bs.modal', function (event) {
