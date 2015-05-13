@@ -102,7 +102,7 @@ function loadLevel(level) {
 		$("#shopping").html("");
 		$("#shopping").append(shopping_header);
 		for (var i=0; i< levels[level].store.length; i++) {
-			var shop_item_input = '<input type="text" data-value="'+ levels[level].store[i].type +'" data-price='+levels[level].store[i].cost_per_unit+' id="store_item_'+i+'" class="input-item">';
+			var shop_item_input = '<input type="text" data-value="'+ levels[level].store[i].type +'" data-price='+levels[level].store[i].cost_per_unit+' data-quantity='+levels[level].store[i].amount_per_unit+' id="store_item_'+i+'" class="input-item">';
 			var shop_item_quantity = " x "+levels[level].store[i].amount_per_unit + " " + ingredients[levels[level].store[i].type].unit + " pack " + ingredients[levels[level].store[i].type].name + " @ $" + levels[level].store[i].cost_per_unit + "/pack";
 			var shop_item_cost = ' = <u>$<span id="store_item_'+levels[level].store[i].type+'_cost" data-value="'+levels[level].store[i].type+'" data-cost="0">0</span></u> <br>'
 			$("#shopping").append(shop_item_input); 
@@ -150,6 +150,26 @@ function loadLevel(level) {
 		$("#shopping").append(total_cost);
 		var purchase_button = '<br><br> <button id="purchaseBtn" class="btn btn-info btn-sm" type="button">Purchase</button>';
 		$("#shopping").append(purchase_button);
+		/* listener for purchase button */
+		$("#purchaseBtn").click(function(){
+			for (var i=0; i< levels[level].store.length; i++) {
+				var item = levels[level].store[i].type;
+				var input_id = "#store_item_"+i;
+				var quantity = Number($(input_id).attr('data-quantity'));
+				var input_val = Number($(input_id).val());
+				console.log(input_val);
+				if (!isNaN(input_val)) {
+					if (input_val > 0) {
+						var amt_to_add = quantity*input_val;
+						console.log("going to add " +quantity*input_val +" of "+item);
+						var cabinet_quantity = "#cabinet_quantity_"+item;
+						var current_cabinet_amt = Number($(cabinet_quantity).attr('data-quantity'));
+						$(cabinet_quantity).html(current_cabinet_amt + amt_to_add);
+						$(cabinet_quantity).attr('data-quantity', current_cabinet_amt + amt_to_add);
+					}
+				}
+			}
+		});
 	}
 	/* associate listeners onto each of the text inputs */
 	for (var i=0; i<levels[level].recipes.length;i++) {
