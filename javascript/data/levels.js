@@ -189,7 +189,7 @@ var levels =
 			},
 		4: 
 			{
-				objective: "Chef Klopfer has taught you that it’s very important to bring in profit for the company. You’ve learned to think about the business’ potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You'll charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You'll charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
+				objective: "Chef Klopfer has taught you that it is very important to bring in profit for the company. You have learned to think about the potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for 40 people. You will charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed 60 of her dessert-craving friends. You will charge her $18/person. Make the recipe that maximizes the profit! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
 				recipes: ["Lemon Bars", "Coconut Shrimp", null, null],
 				cabinet:
 					[

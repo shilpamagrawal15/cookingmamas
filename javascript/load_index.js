@@ -6,6 +6,8 @@ $(document).ready(function () {
 
 /* reset the recipes and input fields */
 function loadGameScreen() {
+	// here have the modal pop up with a description of the game 
+	
 	/* reset all the fields */
 	for (var i=0; i<recipes.length; i++) {
 		var static_div_name = "#recipe_" + i + "_static";
@@ -17,6 +19,10 @@ function loadGameScreen() {
 
 /* load the level's objective and cabinet items */
 function loadLevel(level) {
+	// load modal with objective
+	$("#myRecipe").text("Your Objective:");
+	$("#feedback_modal_body").text(levels[level].objective);
+	$("#feedback_modal").modal({show:true});
 	loadGameScreen();
 	// load objective
 	$("#objective").empty();
