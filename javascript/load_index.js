@@ -157,12 +157,17 @@ function loadLevel(level) {
 				var input_id = "#store_item_"+i;
 				var quantity = Number($(input_id).attr('data-quantity'));
 				var input_val = Number($(input_id).val());
-				var amt_to_add = quantity*input_val;
-				console.log("going to add " +quantity*input_val +" of "+item);
-				var cabinet_quantity = "#cabinet_quantity_"+item;
-				var current_cabinet_amt = Number($(cabinet_quantity).attr('data-quantity'));
-				$(cabinet_quantity).html(current_cabinet_amt + amt_to_add);
-				$(cabinet_quantity).attr('data-quantity', current_cabinet_amt + amt_to_add);
+				console.log(input_val);
+				if (!isNaN(input_val)) {
+					if (input_val > 0) {
+						var amt_to_add = quantity*input_val;
+						console.log("going to add " +quantity*input_val +" of "+item);
+						var cabinet_quantity = "#cabinet_quantity_"+item;
+						var current_cabinet_amt = Number($(cabinet_quantity).attr('data-quantity'));
+						$(cabinet_quantity).html(current_cabinet_amt + amt_to_add);
+						$(cabinet_quantity).attr('data-quantity', current_cabinet_amt + amt_to_add);
+					}
+				}
 			}
 		});
 	}
