@@ -9,18 +9,21 @@ $(document).ready(function () {
 	//submitting the answer and converting it into an object
 	$("#cookBtn").click(function(){
 		var input_obj = {};
-		for (var i=0; i<recipes.length; i++) {
+
+		for (var i=0; i<level_recipes.length; i++) {
+			var current_dish = level_recipes[i];
 			var input_ingredients = {};
-			for (var j=0; j<recipes[i].ingredients.length;j++) {
+			for (var j=0; j<recipes[current_dish].ingredients.length;j++) {
 				var input_id = "#rec_"+i+"_ing_"+j;
 				var num_ingredients = $(input_id).val();
+				console.log(num_ingredients);
 				if (num_ingredients == "") { num_ingredients = 0; }
-				input_ingredients[recipes[i].ingredients[j].type] = num_ingredients;
+				input_ingredients[recipes[current_dish].ingredients[j].type] = num_ingredients;
 			}
 			// input_ingredients is a javascript object that has ingredient_name --> quantity 
 			var num_servings = $("#recipe_"+i+"_serving").val();
 			if (num_servings == "") { num_servings = 0; }
-			input_obj[recipes[i].dish] = {ingredients: input_ingredients, servings: num_servings};
+			input_obj[current_dish] = {ingredients: input_ingredients, servings: num_servings};
 		}
 		console.log(input_obj);
 		feedback_display = generateFeedback(input_obj);
@@ -50,22 +53,23 @@ function generateFeedback(submission) {
 	// track whether user has proportions correct for all recipes
 	var correct_proportions = true;
 	var no_constant_add = true;
-	for (var i=0; i<recipes.length; i++){
+	var level_recipes = levels[player_level].recipes;
+	for (var i=0; i<level_recipes.length; i++){
 		// track whether user has proportions correct for this recipe
 		var correct_proportions_recipe = true;
 		var difference = null;
-		var current_dish = recipes[i].dish;
-		var dish_serving = recipes[i].serving;
-		var user_serving = submission[current_dish].servings;
+		var dish = level_recipes[i];
+		var dish_serving = recipes[dish].serving;
+		var user_serving = submission[dish].servings;
 		// only applies to dishes where the user has submitted something for the number of servings
 		if (user_serving !== ""){
-			for (var j=0; j<recipes[i].ingredients.length; j++){
+			for (var j=0; j<recipes[dish].ingredients.length; j++){
 				// the reference amount and correct ratio
-				var ingredient = recipes[i].ingredients[j].type;
-				var ingredient_amount = recipes[i].ingredients[j].quantity;
+				var ingredient = recipes[dish].ingredients[j].type;
+				var ingredient_amount = recipes[dish].ingredients[j].quantity;
 				var correct_ratio = (dish_serving / ingredient_amount).toFixed(14);
 				// amount of an ingredient the user entered, with ingredient proportion determined by the # of servings user entered
-				var user_amount = submission[current_dish].ingredients[ingredient];
+				var user_amount = submission[dish].ingredients[ingredient];
 				if (user_serving != 0 && user_amount != 0 && user_serving != undefined && user_amount != undefined){
 					var current_difference = user_amount - ingredient_amount;
 					var user_ratio = (user_serving / user_amount).toFixed(14);
@@ -115,14 +119,15 @@ function generateFeedback(submission) {
 	var entree_count = 0;
 	var dessert_count_solution = 0;
 	var dessert_count = 0;
-	for (var i=0; i<recipes.length; i++){
+	var level_recipes = levels[player_level].recipes;
+	for (var i=0; i<level_recipes.length; i++){
 		// var correct_dish = true;
-		var current_dish = recipes[i].dish;
-		var dish_type = recipes[i].course;
-		if (submission[current_dish].servings != undefined && level_solution[current_dish].servings != undefined){
-			var user_serving = Number(submission[current_dish].servings);
-			var serving_solution = level_solution[current_dish].servings;
-			var solution_comparator = level_solution[current_dish].comparator;
+		var dish = level_recipes[i];
+		var dish_type = recipes[dish].course;
+		if (submission[dish].servings != undefined && level_solution[dish].servings != undefined){
+			var user_serving = Number(submission[dish].servings);
+			var serving_solution = level_solution[dish].servings;
+			var solution_comparator = level_solution[dish].comparator;
 		}
 
 		// the different comparators for a solution to a level's objective
