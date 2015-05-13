@@ -95,6 +95,6 @@ var ingredients =
 			{
 				name: "beer",
 				image: "./images/beer.png",
-				unit: "cups:"
+				unit: "cups"
 			}
 	}

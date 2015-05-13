@@ -1,9 +1,9 @@
 var player_level = null;
 
 $(document).ready(function () {
-
 	loadGameScreen();
 });
+
 $(window).load(function () {
 	// here have the modal pop up with a description of the game 
 	$("#myRecipe").text("Klopfer's Krazy Katering!");
@@ -96,10 +96,13 @@ function loadLevel(level) {
 	/* load shopping list onto game screen (if applicable) */
 	if (levels[level].store != null) {
 		$("#shopping").show();
+		var shopping_header = "<h4> Your Shopping List </h4>";
+		$("#shopping").html("");
+		$("#shopping").append(shopping_header);
 		for (var i=0; i< levels[level].store.length; i++) {
 			var shop_item_input = '<input type="text" data-value="'+ levels[level].store[i].type +'" data-price='+levels[level].store[i].cost_per_unit+' id="store_item_'+i+'" class="input-item">';
 			var shop_item_quantity = " x "+levels[level].store[i].amount_per_unit + " " + ingredients[levels[level].store[i].type].unit + " pack " + ingredients[levels[level].store[i].type].name + " @ $" + levels[level].store[i].cost_per_unit + "/pack";
-			var shop_item_cost = ' = <u>$<span id="store_item_'+levels[level].store[i].type+'_cost" data-value="'+levels[level].store[i].type+'">0</span></u> <br>'
+			var shop_item_cost = ' = <u>$<span id="store_item_'+levels[level].store[i].type+'_cost" data-value="'+levels[level].store[i].type+'" data-cost="0">0</span></u> <br>'
 			$("#shopping").append(shop_item_input); 
 			$("#shopping").append(shop_item_quantity);
 			$("#shopping").append(shop_item_cost);
@@ -111,19 +114,40 @@ function loadLevel(level) {
 				var cost_id = "#store_item_"+store_item+"_cost";
 				var input_quantity = this.value;
 				if (isNaN(input_quantity)){
+					$(cost_id).html("0");
 					$(this).css('background-color', 'red');
+					$(cost_id).attr("data-cost", 0);
 				}
 				else {
 					if (input_quantity < 0) {
+						$(cost_id).html("0");
 						$(this).css('background-color', 'red');
+						$(cost_id).attr("data-cost", 0);
 					}
 					else {
 						$(this).css('background-color', 'white');
-						$(cost_id).html(input_quantity*Number(this.getAttribute('data-price')));
+						var item_cost = Number(input_quantity) * Number(this.getAttribute('data-price'));
+						$(cost_id).html(item_cost);
+						$(cost_id).attr("data-cost", item_cost);
 					}
 				}
+				$("#total_shopping_cost").html("");
+				$("#total_shopping_cost").append(getTotalCost);
 			});
 		}
+		var getTotalCost = function() {
+			var total = 0;
+			for (var i=0; i< levels[level].store.length; i++) {
+				var item = levels[level].store[i].type;
+				var item_cost = $("#store_item_"+item+"_cost").attr('data-cost');
+				total = total + Number(item_cost);
+			}
+			return total;
+		}
+		var total_cost = '<br><b>Total Shopping Cost: $<span id="total_shopping_cost">'+getTotalCost()+'</span></b>';
+		$("#shopping").append(total_cost);
+		var purchase_button = '<br><br> <button id="purchaseBtn" class="btn btn-info btn-sm" type="button">Purchase</button>';
+		$("#shopping").append(purchase_button);
 	}
 	/* associate listeners onto each of the text inputs */
 	for (var i=0; i<levels[level].recipes.length;i++) {
