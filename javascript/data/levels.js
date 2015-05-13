@@ -162,7 +162,7 @@ var levels =
 				store:
 					[
 						{type: "shrimp", cost_per_unit: 15, amount_per_unit: 16}, // $15/16 oz. shrimp
-						{type: "cocunut", cost_per_unit: 18, amount_per_unit: 6},
+						{type: "coconut", cost_per_unit: 18, amount_per_unit: 6},
 						{type: "eggs", cost_per_unit: 4, amount_per_unit: 6},
 						{type: "flour", cost_per_unit: 3, amount_per_unit: 4},
 						{type: "vegetable_oil", cost_per_unit: 7, amount_per_unit: 16},

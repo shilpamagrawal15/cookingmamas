@@ -7,7 +7,6 @@ $(document).ready(function () {
 /* reset the recipes and input fields */
 function loadGameScreen() {
 	// TODO: @ava - here have the modal pop up with a description of the game 
-	$("#shopping-copy").hide();
 	$("#shopping").hide();
 	/* reset all the fields */
 	for (var i=0; i<recipes.length; i++) {
@@ -86,9 +85,36 @@ function loadLevel(level) {
 		}
 	}
 	/* load shopping list onto game screen (if applicable) */
-	console.log(levels[level].store);
 	if (levels[level].store != null) {
 		$("#shopping").show();
+		for (var i=0; i< levels[level].store.length; i++) {
+			var shop_item_input = '<input type="text" data-value="'+ levels[level].store[i].type +'" data-price='+levels[level].store[i].cost_per_unit+' id="store_item_'+i+'" class="input-item">';
+			var shop_item_quantity = " x "+levels[level].store[i].amount_per_unit + " " + ingredients[levels[level].store[i].type].unit + " pack " + ingredients[levels[level].store[i].type].name + " @ $" + levels[level].store[i].cost_per_unit + "/pack";
+			var shop_item_cost = ' = <u>$<span id="store_item_'+levels[level].store[i].type+'_cost" data-value="'+levels[level].store[i].type+'">0</span></u> <br>'
+			$("#shopping").append(shop_item_input); 
+			$("#shopping").append(shop_item_quantity);
+			$("#shopping").append(shop_item_cost);
+		}
+		for (var i=0; i< levels[level].store.length; i++) {
+			var input_id = "#store_item_"+i;
+			$(input_id).keyup(function(){
+				var store_item = this.getAttribute('data-value');
+				var cost_id = "#store_item_"+store_item+"_cost";
+				var input_quantity = this.value;
+				if (isNaN(input_quantity)){
+					$(this).css('background-color', 'red');
+				}
+				else {
+					if (input_quantity < 0) {
+						$(this).css('background-color', 'red');
+					}
+					else {
+						$(this).css('background-color', 'white');
+						$(cost_id).html(input_quantity*Number(this.getAttribute('data-price')));
+					}
+				}
+			});
+		}
 	}
 	/* associate listeners onto each of the text inputs */
 	for (var i=0; i<levels[level].recipes.length;i++) {
@@ -107,7 +133,7 @@ function loadLevel(level) {
 						$(this).css('background-color', 'red');
 					}
 					else {
-						if (recipe_quantity_input > $(cabinet_quantity_id).attr('data-quantity-original')){
+						if (recipe_quantity_input > $(cabinet_quantity_id).attr('data-quantity-original') || recipe_quantity_input < 0){
 							$(cabinet_quantity_id).html(cabinet_quantity_current + recipe_quantity_current);
 							this.setAttribute("data-quantity", 0);
 							$(this).css('background-color', 'red');
