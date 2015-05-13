@@ -6,8 +6,9 @@ $(document).ready(function () {
 
 /* reset the recipes and input fields */
 function loadGameScreen() {
-	// here have the modal pop up with a description of the game 
-	
+	// TODO: @ava - here have the modal pop up with a description of the game 
+	$("#shopping-copy").hide();
+	$("#shopping").hide();
 	/* reset all the fields */
 	for (var i=0; i<recipes.length; i++) {
 		var static_div_name = "#recipe_" + i + "_static";
@@ -19,6 +20,8 @@ function loadGameScreen() {
 
 /* load the level's objective and cabinet items */
 function loadLevel(level) {
+	// hide the shopping list - only to be loaded if needed
+	$("#shopping").hide();
 	// load modal with objective
 	$("#myRecipe").text("Your Objective:");
 	$("#feedback_modal_body").text(levels[level].objective);
@@ -82,39 +85,46 @@ function loadLevel(level) {
 			}
 		}
 	}
+	/* load shopping list onto game screen (if applicable) */
+	console.log(levels[level].store);
+	if (levels[level].store != null) {
+		$("#shopping").show();
+	}
 	/* associate listeners onto each of the text inputs */
 	for (var i=0; i<levels[level].recipes.length;i++) {
-		for (var j=0; j<recipes[levels[level].recipes[i]].ingredients.length; j++) {
-			var input_id = "#rec_"+i+"_ing_"+j;
-			$(input_id).keyup(function(){
-				var ingredient = this.getAttribute('data-value');
-				var cabinet_quantity_id = "#cabinet_quantity_" + ingredient;
-				var recipe_quantity_current = Number(this.getAttribute('data-quantity'));
-				var recipe_quantity_input = Number(this.value);
-				var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
-				if (isNaN(recipe_quantity_input)){
-					$(cabinet_quantity_id).html(cabinet_quantity_current + recipe_quantity_current);
-					this.setAttribute("data-quantity", 0);
-					$(this).css('background-color', 'red');
-				}
-				else {
-					if (recipe_quantity_input > $(cabinet_quantity_id).attr('data-quantity-original')){
+		if (levels[level].recipes[i] != null) {
+			for (var j=0; j<recipes[levels[level].recipes[i]].ingredients.length; j++) {
+				var input_id = "#rec_"+i+"_ing_"+j;
+				$(input_id).keyup(function(){
+					var ingredient = this.getAttribute('data-value');
+					var cabinet_quantity_id = "#cabinet_quantity_" + ingredient;
+					var recipe_quantity_current = Number(this.getAttribute('data-quantity'));
+					var recipe_quantity_input = Number(this.value);
+					var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
+					if (isNaN(recipe_quantity_input)){
 						$(cabinet_quantity_id).html(cabinet_quantity_current + recipe_quantity_current);
 						this.setAttribute("data-quantity", 0);
 						$(this).css('background-color', 'red');
 					}
-					else if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
-						var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
-						$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);
-						$(cabinet_quantity_id).html(cabinet_quantity_new);
-						this.setAttribute("data-quantity", recipe_quantity_input);
-						$(this).css('background-color', 'white');
-					}
 					else {
-						$(this).css('background-color', 'red');
+						if (recipe_quantity_input > $(cabinet_quantity_id).attr('data-quantity-original')){
+							$(cabinet_quantity_id).html(cabinet_quantity_current + recipe_quantity_current);
+							this.setAttribute("data-quantity", 0);
+							$(this).css('background-color', 'red');
+						}
+						else if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
+							var cabinet_quantity_new = cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current;
+							$(cabinet_quantity_id).attr("data-quantity", cabinet_quantity_new);
+							$(cabinet_quantity_id).html(cabinet_quantity_new);
+							this.setAttribute("data-quantity", recipe_quantity_input);
+							$(this).css('background-color', 'white');
+						}
+						else {
+							$(this).css('background-color', 'red');
+						}
 					}
-				}
-			});
+				});
+			}
 		}
 	}
 }

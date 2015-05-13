@@ -27,43 +27,28 @@ var levels =
 						{type: "garlic", quantity: 10},
 						{type: "shrimp", quantity: 50}
 					],
+				store: null,
 				solution: 
 					{
 						"Peanut Butter Cookies":
 							{
 								servings: 40,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							},
 						"Lemon Pound Cake":
 							{
 								servings: 40,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							},
 						"Sauteed Asparagus":
 							{
 								servings: 25,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							},
 						"Shrimp Linguini":
 							{
 								servings: 25,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							}
 					}
 			},
@@ -87,43 +72,28 @@ var levels =
 						{type: "garlic", quantity: 10},
 						{type: "shrimp", quantity: 50}
 					],
+				store: null,
 				solution:
 					{
 						"Peanut Butter Cookies":
 							{
 								servings: 20,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							},
 						"Lemon Pound Cake":
 							{
 								servings: 20,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							},
 						"Sauteed Asparagus":
 							{
 								servings: 20,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							},
 						"Shrimp Linguini":
 							{
 								servings: 20,
-								comparator: "total",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "total"
 							}
 					}
 			},
@@ -147,43 +117,28 @@ var levels =
 						{type: "garlic", quantity: 10},
 						{type: "shrimp", quantity: 50}
 					],
+				store: null,
 				solution: 
 					{
 						"Peanut Butter Cookies":
 							{
 								servings: 17,
-								comparator: "greater",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "greater"
 							},
 						"Lemon Pound Cake":
 							{
 								servings: 10,
-								comparator: "equal",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "equal"
 							},
 						"Sauteed Asparagus":
 							{
 								servings: 12,
-								comparator: "equal",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "equal"
 							},
 						"Shrimp Linguini":
 							{
 								servings: 15,
-								comparator: "equal",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "equal"
 							}
 					}
 			},
@@ -193,18 +148,12 @@ var levels =
 				recipes: ["Lemon Bars", "Coconut Shrimp", null, null],
 				cabinet:
 					[
-						{type: "peanut_butter", quantity: 0},
 						{type: "sugar", quantity: 7},
 						{type: "eggs", quantity: 9},
-						{type: "baking_soda", quantity: 0},
-						{type: "vanilla_extract", quantity: 0},
 						{type: "butter", quantity: 48},
 						{type: "flour", quantity: 4},
 						{type: "baking_powder", quantity: 15},
 						{type: "lemon_juice", quantity: 3.5},
-						{type: "asparagus", quantity: 0},
-						{type: "linguine", quantity: 0},
-						{type: "garlic", quantity: 0},
 						{type: "shrimp", quantity: 80},
 						{type: "coconut", quantity: 10},
 						{type: "vegetable_oil", quantity: 15},
@@ -224,11 +173,7 @@ var levels =
 						"Lemon Bars":
 							{
 								servings: 60,
-								comparator: "greater",
-								ingredients: 
-									{
-										// do you need this?
-									}
+								comparator: "greater"
 							},
 					}
 			}
