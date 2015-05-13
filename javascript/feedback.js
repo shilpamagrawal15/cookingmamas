@@ -65,7 +65,7 @@ function generateFeedback(submission) {
 				var correct_ratio = (dish_serving / ingredient_amount).toFixed(14);
 				// amount of an ingredient the user entered, with ingredient proportion determined by the # of servings user entered
 				var user_amount = submission[current_dish].ingredients[ingredient];
-				if (user_serving != 0 && user_amount != 0){
+				if (user_serving != 0 && user_amount != 0 && user_serving != undefined && user_amount != undefined){
 					var current_difference = user_amount - ingredient_amount;
 					var user_ratio = (user_serving / user_amount).toFixed(14);
 					if (difference == null){
@@ -88,7 +88,7 @@ function generateFeedback(submission) {
 						console.log(user_amount);
 						console.log(ingredient_amount);
 					}
-				} else if ((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)){
+				} else if (((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)) && user_serving != undefined && user_amount != undefined){
 					correct_proportions = false;
 					correct_proportions_recipe = false;
 				}
@@ -118,9 +118,12 @@ function generateFeedback(submission) {
 		// var correct_dish = true;
 		var current_dish = recipes[i].dish;
 		var dish_type = recipes[i].course;
-		var user_serving = Number(submission[current_dish].servings);
-		var serving_solution = level_solution[current_dish].servings;
-		var solution_comparator = level_solution[current_dish].comparator;
+		if (submission[current_dish].servings != undefined && level_solution[current_dish].servings != undefined){
+			var user_serving = Number(submission[current_dish].servings);
+			var serving_solution = level_solution[current_dish].servings;
+			var solution_comparator = level_solution[current_dish].comparator;
+		}
+
 		// the different comparators for a solution to a level's objective
 		switch (solution_comparator){
 			case "equal":
