@@ -5,11 +5,20 @@
 var feedbackText = 
 	[
 
+		// {
+		// 	"true, true": "Way to go! You met your client's request and pleased Chef Klopfer by executing your dishes perfectly! Continue to hone your skills by trying a higher level.",
+		// 	"true, false" : "You're on your way! Chef Klopfer is pleased that you cooked your dishes using the right ingredient amounts, but you didn't meet Mr. Richards’ request. Remember that you need to make at least as many entrees and desserts as he requested!",
+		// 	"false, true" : "Chef Klopfer noticed that your dishes taste a bit off, even though you tried to make at least as many entrees and desserts as Richard Richards requested. Keep in mind that you have information about how each dish should be cooked!",
+		// 	"false, false" : "Chef Klopfer noticed that your dishes taste a bit off, and Mr. Richards is not pleased that you did not prepare enough food as requested. Keep in mind that you have information about how each dish should be cooked!",
+		// },
+
 		{
-			"true, true": "Way to go! You met your client's request and pleased Chef Klopfer by executing your dishes perfectly! Continue to hone your skills by trying a higher level.",
-			"true, false" : "You're on your way! Chef Klopfer is pleased that you cooked your dishes using the right ingredient amounts, but you didn't meet Mr. Richards’ request. Remember that you need to make at least as many entrees and desserts as he requested!",
-			"false, true" : "Chef Klopfer noticed that your dishes taste a bit off, even though you tried to make at least as many entrees and desserts as Richard Richards requested. Keep in mind that you have information about how each dish should be cooked!",
-			"false, false" : "Chef Klopfer noticed that your dishes taste a bit off, and Mr. Richards is not pleased that you did not prepare enough food as requested. Keep in mind that you have information about how each dish should be cooked!",
+			"true, true, true": "Way to go! You met your client's request and pleased Chef Klopfer by executing your dishes perfectly! Continue to hone your skills by trying a higher level.",
+			"true, false, true" : "You're on your way! Chef Klopfer is pleased that you cooked your dishes using the right ingredient amounts, but you didn't meet Richard Richards' request. Keep the objective in mind when deciding what to cook. You need to have enough entrees and desserts to satisfy his request!",
+			"false, true, false" : "Chef Klopfer noticed that your dishes taste a bit off, even though you tried to make the number of desserts and entrees that Mr. Richards requested. Keep in mind that you have information about how each dish should be cooked! Remember to scale ingredient amounts rather than just adding or subtracting a constant amount. Check your recipes for:",
+			"false, true, true" : "Chef Klopfer noticed that your dishes taste a bit off, even though you tried to make the number of desserts and entrees that Mr. Richards requested. Keep in mind that you have information about how each dish should be cooked! Check your recipes for:",
+			"false, false, true" : "Chef Klopfer noticed that your dishes taste a bit off, and Mr. Richards is not pleased that you were unable to meet his request. Remember that you need to have enough food for Mr. Richards guests, and keep in mind that you have information about how each dish should be cooked! Check your recipes for:",
+			"false, false, false" : "Chef Klopfer noticed that your dishes taste a bit off, and Mr. Richards is not pleased that you were unable to meet his request. Remember that you need to have enough food for Mr. Richards guests, and keep in mind that you have information about how each dish should be cooked! Remember to scale ingredient amounts rather than just adding or subtracting a constant amount. Check your recipes for:",
 		},
 
 		{

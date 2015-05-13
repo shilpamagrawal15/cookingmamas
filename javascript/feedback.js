@@ -194,12 +194,12 @@ function generateFeedback(submission) {
 	}
 
 	var feedback_scenario = correct_proportions.toString() + ", " + met_objective.toString();
-	if (player_level == 2){
+	if (player_level == 2 || player_level == 1){
 		feedback_scenario += ", " + no_constant_add.toString();
 		console.log(feedback_scenario);
 	}
 	var feedback_display = feedbackText[player_level-1][feedback_scenario];
-	if (player_level == 2 && ! correct_proportions){
+	if ((player_level == 2 || player_level == 1) && ! correct_proportions){
 		for (var i=0; i<incorrect_dishes.length - 1; i++){
 			feedback_display += " " + incorrect_dishes[i] + ",";
 		} feedback_display += " " + incorrect_dishes[incorrect_dishes.length - 1];
