@@ -1,13 +1,22 @@
 var player_level = null;
 
 $(document).ready(function () {
+
 	loadGameScreen();
+});
+$(window).load(function () {
+	// here have the modal pop up with a description of the game 
+	$("#myRecipe").text("Klopfer's Krazy Katering!");
+	$("#feedback_modal_body").text(homeText);
+	$("#feedback_modal").modal({show:true});
 });
 
 /* reset the recipes and input fields */
 function loadGameScreen() {
+
 	// TODO: @ava - here have the modal pop up with a description of the game 
 	$("#shopping").hide();
+
 	/* reset all the fields */
 	for (var i=0; i<recipes.length; i++) {
 		var static_div_name = "#recipe_" + i + "_static";
