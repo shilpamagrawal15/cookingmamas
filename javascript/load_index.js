@@ -110,6 +110,9 @@ function loadLevel(level) {
 						this.setAttribute("data-quantity", recipe_quantity_input);
 						$(this).css('background-color', 'white');
 					}
+					else {
+						$(this).css('background-color', 'red');
+					}
 				}
 			});
 		}
