@@ -1,4 +1,5 @@
 var player_level = null;
+var level_recipes = null; 
 
 $(document).ready(function () {
 	loadGameScreen();
@@ -39,6 +40,7 @@ function loadLevel(level) {
 	$("#objective").empty();
 	$("#objective").append(levels[level].objective);
 	player_level = level;
+	level_recipes = levels[player_level].recipes;
 	// write level number on screen
 	$("#level-number").empty();
 	$("#level-number").html(level);
