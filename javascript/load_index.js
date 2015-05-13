@@ -93,14 +93,14 @@ function loadLevel(level) {
 				var recipe_quantity_input = Number(this.value);
 				var cabinet_quantity_current = Number($(cabinet_quantity_id).attr('data-quantity'));
 				if (isNaN(recipe_quantity_input)){
-					$(cabinet_quantity_id).attr("data-quantity", $(cabinet_quantity_id).attr('data-quantity-original'));
-					$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
+					$(cabinet_quantity_id).html(cabinet_quantity_current + recipe_quantity_current);
 					this.setAttribute("data-quantity", 0);
 					$(this).css('background-color', 'red');
 				}
 				else {
 					if (recipe_quantity_input > $(cabinet_quantity_id).attr('data-quantity-original')){
-						$(cabinet_quantity_id).html($(cabinet_quantity_id).attr('data-quantity-original'));
+						$(cabinet_quantity_id).html(cabinet_quantity_current + recipe_quantity_current);
+						this.setAttribute("data-quantity", 0);
 						$(this).css('background-color', 'red');
 					}
 					else if ((cabinet_quantity_current - recipe_quantity_input + recipe_quantity_current) >= 0) {
