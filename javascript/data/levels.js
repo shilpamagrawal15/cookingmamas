@@ -175,6 +175,11 @@ var levels =
 								servings: 60,
 								comparator: "equal"
 							},
+						"Coconut Shrimp":
+							{
+								servings: 0,
+								comparator: "equal"
+							},
 					}
 			}
 	}

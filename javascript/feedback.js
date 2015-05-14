@@ -64,15 +64,42 @@ function generateFeedback(submission) {
 	var both_level_four = false;
 	var level_four_cooked = 0;
 	var level_recipes = levels[player_level].recipes;
+	var level_four_spent = 0;
+	var correct_revenue = true;
+	var incorrect_revenue_dishes = [];
+	if (player_level == 4){
+		level_four_spent = submission.total_spent;
+	}
 	for (var i=0; i<level_recipes.length; i++){
 		// track whether user has proportions correct for this recipe
+		if (level_recipes[i] == null){
+			continue;
+		}
 		var correct_proportions_recipe = true;
+		var correct_revenue_recipe = true;
 		var difference = null;
 		var dish = level_recipes[i];
 		var dish_serving = recipes[dish].serving;
+
 		var user_serving = submission[dish].servings;
 		// only applies to dishes where the user has submitted something for the number of servings
 		if (user_serving !== ""){
+			// determine if projected revenue was calculated correctly 
+			if (player_level == 4){
+				var dish_charge = recipes[dish].charge;
+				var dish_projected_revenue = submission[dish].projected_revenue;
+				var correct_revenue_calc = (Number(user_serving) * dish_charge) - Number(level_four_spent);
+				console.log(correct_revenue_calc);
+				if (dish_projected_revenue != correct_revenue_calc){
+					correct_revenue_recipe = false;
+					correct_revenue = false;
+					incorrect_revenue_dishes.push(dish);
+				}
+			}
+			if (player_level == 4){
+				level_four_cooked += 1;
+			};
+
 			for (var j=0; j<recipes[dish].ingredients.length; j++){
 				// the reference amount and correct ratio
 				var ingredient = recipes[dish].ingredients[j].type;
@@ -97,15 +124,13 @@ function generateFeedback(submission) {
 					if (user_ratio !== correct_ratio){
 						correct_proportions = false;
 						correct_proportions_recipe = false;
-						console.log("Incorrect proportions for:" + ingredient + " in " + current_dish);
+						console.log("Incorrect proportions for:" + ingredient + " in " + dish);
 						console.log(user_ratio);
 						console.log(correct_ratio);
 						console.log(user_amount);
 						console.log(ingredient_amount);
 					}
-					if (player_level == 4){
-						level_four_cooked += 1;
-					}
+
 				} else if (((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)) && user_serving != undefined && user_amount != undefined){
 					correct_proportions = false;
 					correct_proportions_recipe = false;
@@ -114,7 +139,7 @@ function generateFeedback(submission) {
 
 			// incorrect proportions for ingredients in dish
 			if (! correct_proportions_recipe){
-				incorrect_dishes.push(current_dish);
+				incorrect_dishes.push(dish);
 			} 
 		}
 
@@ -139,13 +164,28 @@ function generateFeedback(submission) {
 	var dessert_count = 0;
 	var level_recipes = levels[player_level].recipes;
 	for (var i=0; i<level_recipes.length; i++){
+		if (level_recipes[i] == null){
+			continue;
+		}
 		// var correct_dish = true;
 		var dish = level_recipes[i];
 		var dish_type = recipes[dish].course;
-		if (submission[dish].servings != undefined && level_solution[dish].servings != undefined){
+		if (level_solution[dish] == undefined){
 			var user_serving = Number(submission[dish].servings);
-			var serving_solution = level_solution[dish].servings;
-			var solution_comparator = level_solution[dish].comparator;
+			if (user_serving != 0){
+				met_objective = false;
+				continue;
+			}
+		}
+		console.log(dish);
+		console.log(level_solution[dish]);
+		if (submission[dish].servings != undefined && level_solution[dish] != undefined){
+			if (level_solution[dish].servings != undefined){
+				var user_serving = Number(submission[dish].servings);
+				var serving_solution = level_solution[dish].servings;
+				var solution_comparator = level_solution[dish].comparator;
+			}
+
 		}
 
 		// the different comparators for a solution to a level's objective
@@ -211,14 +251,13 @@ function generateFeedback(submission) {
 	}
 
 
-	// // handle cost input object for level four
-	// if (player_level == 4){
-	// 	for (var i=0; i<store_obj.length; i++){
-	// 		if (store_obj[i] != 0){
-	// 			met_objective = false;
-	// 		}
-	// 	}
-	// }
+	// handle cost input object for level four
+	if (player_level == 4){
+		// if they bought stuff from the store they definitely didn't meet objective
+		if (Number(level_four_spent) != 0){
+			met_objective = false;
+		}
+	}
 
 
 	// failed to meet objective
@@ -233,15 +272,28 @@ function generateFeedback(submission) {
 		feedback_scenario += ", " + no_constant_add.toString();
 		console.log(feedback_scenario);
 	}
+	if (player_level == 4){
+		feedback_scenario += ", " + both_level_four.toString() + ", " + correct_revenue.toString();
+	}
 	// if (player_level == 4){
 	// 	feedback_scenario += ", " + both_level_four.toString();
 	// }
 	
 	var feedback_display = feedbackText[player_level-1][feedback_scenario];
+	if (player_level == 4){
+		console.log(feedback_scenario);
+		console.log(both_level_four);
+		var last_char = feedback_display.slice(-1);
+	}
 	if ((player_level == 2 || player_level == 1) && ! correct_proportions){
 		for (var i=0; i<incorrect_dishes.length - 1; i++){
 			feedback_display += " " + incorrect_dishes[i] + ",";
 		} feedback_display += " " + incorrect_dishes[incorrect_dishes.length - 1];
+	}
+	if (player_level == 4 && ! correct_revenue && last_char == ":"){
+		for (var i=0; i<incorrect_revenue_dishes.length - 1; i++){
+			feedback_display += " " + incorrect_revenue_dishes[i] + ",";
+		} feedback_display += " " + incorrect_revenue_dishes[incorrect_revenue_dishes.length - 1];
 	}
 	
 	// if (! did_scale){

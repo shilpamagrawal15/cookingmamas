@@ -70,7 +70,8 @@ var recipes =
 					{type: "flour", quantity: 0.67},
 					{type: "sugar", quantity: 1},
 					{type: "baking_powder", quantity: 0.25}
-				]
+				],
+				charge: 18,
 			},
 		"Coconut Shrimp":
 			{
@@ -85,7 +86,8 @@ var recipes =
 					{type: "baking_powder", quantity: 1.5},
 					{type: "vegetable_oil", quantity: 3},
 					{type: "beer", quantity: 0.67}
-				]
+				], 
+				charge: 30,
 			}
 
 	};

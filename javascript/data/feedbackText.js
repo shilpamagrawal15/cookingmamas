@@ -2,6 +2,7 @@
 	- keys are of the form boolean, boolean where the first boolean reflects proportions, the second boolean reflects level objective
 	- for levels 1 and 2 third boolean reflects whether they added/subtracted a constant amount
 	- for level 4 third boolean reflects whether they cooked both Lemon Bars/Coconut Shrimp
+	- for level 4 fourth boolean reflects whether they correctly calculated the projected revenue for the dishes. 
 */
 
 var feedbackText = 
@@ -25,7 +26,7 @@ var feedbackText =
 
 		{
 			"true, true, true": "Way to go! You met your client's request and pleased Chef Klopfer by executing your dishes perfectly! Continue to hone your skills by trying a higher level.",
-			"true, false, true" : "You're on your way! Chef Klopfer is pleased that you cooked your dishes using the right ingredient amounts, but you didn't meet Maria Mark’s request. Her daughter expected you to make at least as many entrees and desserts as she requested. Keep the objective in mind when deciding what to cook!",
+			"true, false, true" : "You're on your way! Chef Klopfer is pleased that you cooked your dishes using the right ingredient amounts, but you didn't meet Maria Mark's request. Her daughter expected you to make at least as many entrees and desserts as she requested. Keep the objective in mind when deciding what to cook!",
 			"false, true, false" : "Chef Klopfer noticed that your dishes taste a bit off, even though you tried to make the number of desserts and entrees that Ms. Marks requested. Keep in mind that you have information about how each dish should be cooked! Remember to scale ingredient amounts rather than just adding or subtracting a constant amount. Check your recipes for:",
 			"false, true, true" : "Chef Klopfer noticed that your dishes taste a bit off, even though you tried to make the number of desserts and entrees that Ms. Marks requested. Keep in mind that you have information about how each dish should be cooked! Check your recipes for:",
 			"false, false, true" : "Chef Klopfer noticed that your dishes taste a bit off, and Ms. Marks is not pleased that you were unable to meet the request. Keep in mind that you have information about how each dish should be cooked! Check your recipes for:",
@@ -40,13 +41,20 @@ var feedbackText =
 		},
 
 		{
-			"true, true, false": "Way to go! You correctly chose to take Larissa’s request and pleased Chef Klopfer by executing your dishes perfectly, and he’s very happy that you were able to maximize the profit! A promotion is likely in your future!" , 
-			"true, false, true": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa!", 
-			"true, false, false": "You’re on your way! Your cooking meets Chef Klopfer’s standards, but he knows that you could have pulled in more profit than you did. Remember that shopping will bring down your net revenue, the exact request, and exactly which ingredients are needed to cook the Coconut Shrimp versus the Lemon Bars.", 
-			"false, true, true": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
-			"false, false, true": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
-			"false, true, false": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
-			"false, false, false": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"true, true, false, true": "Way to go! You correctly chose to take Larissa's request and pleased Chef Klopfer by executing your dishes perfectly, and he's very happy that you were able to maximize the profit! A promotion is likely in your future!" , 
+			"true, false, true, true": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa!", 
+			"false, true, true, true": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa! Despite your efforts, Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"false, false, true, true": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa! Despite your efforts, Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"true, false, false, true": "You’re on your way! Your cooking meets Chef Klopfer’s standards, but he knows that you could have pulled in more profit than you did. Remember that shopping will bring down your net revenue, the exact request, and exactly which ingredients are needed to cook the Coconut Shrimp versus the Lemon Bars.", 
+			"false, true, false, true": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"false, false, false, true": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"true, true, false, false": "You correctly chose to take Larissa's request without buying anything and pleased Chef Klopfer by executing your dishes perfectly, but he noticed that the projected revenue that you gave him didn't match his calculation." , 
+			"true, false, true, false": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa!", 
+			"true, false, false, false": "You’re on your way! Your cooking meets Chef Klopfer;s standards, but he knows that you could have pulled in more profit than you did. He also noticed that your revenue bookkeeping does not match up with his. Remember that shopping will bring down your net revenue, the exact request, and exactly which ingredients are needed to cook the Coconut Shrimp versus the Lemon Bars.", 
+			"false, true, true, false": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa! Despite your efforts, Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked! He also noticed that your revenue bookkeeping does not match up with his. Check your revenue calculation for:", 
+			"false, false, true, false": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa! Despite your efforts, Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked! He also noticed that your revenue bookkeeping does not match up with his. Check your revenue calculation for:", 
+			"false, true, false, false": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked! He also noticed that your revenue bookkeeping does not match up with his. Check your revenue calculation for:", 
+			"false, false, false, false": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked! He also noticed that your revenue bookkeeping does not match up with his. Check your revenue calculation for:", 
 			 
 		}
 
