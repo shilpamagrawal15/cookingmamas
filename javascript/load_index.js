@@ -8,7 +8,7 @@ $(document).ready(function () {
 $(window).load(function () {
 	// here have the modal pop up with a description of the game 
 	$("#myRecipe").text("Klopfer's Krazy Katering!");
-	$("#feedback_modal_body").text(homeText);
+	$("#feedback_modal_body").html(homeText);
 	$("#feedback_modal").modal({show:true});
 });
 
