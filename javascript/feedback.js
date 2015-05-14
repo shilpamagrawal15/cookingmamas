@@ -95,10 +95,12 @@ function generateFeedback(submission) {
 					correct_revenue = false;
 					incorrect_revenue_dishes.push(dish);
 				}
+				if (user_serving != 0){
+					console.log(dish);
+					level_four_cooked += 1;
+				}
 			}
-			if (player_level == 4){
-				level_four_cooked += 1;
-			};
+
 
 			for (var j=0; j<recipes[dish].ingredients.length; j++){
 				// the reference amount and correct ratio

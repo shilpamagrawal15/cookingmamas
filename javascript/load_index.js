@@ -177,8 +177,8 @@ function loadLevel(level) {
 		});
 		$("#total_expenses").html('<h4>Total Expenses: $<span id=total_expenses_price data-expenses="0">0</span></h4>');
 		// HARCODED: append input for projected revenue
-		$("#recipe_0_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_0" type="text" class="input-item"></input></h5>'); 
-		$("#recipe_1_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_1" type="text" class="input-item"></input></h5>');
+		$("#recipe_0_input").append('<h5><br>Projected Profit: <input id="projected_revenue_0" type="text" class="input-item"></input></h5>'); 
+		$("#recipe_1_input").append('<h5><br>Projected Profit: <input id="projected_revenue_1" type="text" class="input-item"></input></h5>');
 		// HARDCODED: change the height of the recipe inputs
 		$("#recipe_0_input").height("15%");
 		$("#recipe_1_input").height("18%");
