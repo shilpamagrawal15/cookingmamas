@@ -9,6 +9,9 @@ $(document).ready(function () {
 	//submitting the answer and converting it into an object
 	$("#cookBtn").click(function(){
 		var input_obj = {};
+		// TODO: @shilpa
+		// some object from the store 
+		// var store_obj = {} 
 
 		for (var i=0; i<level_recipes.length; i++) {
 			var current_dish = level_recipes[i];
@@ -53,6 +56,8 @@ function generateFeedback(submission) {
 	// track whether user has proportions correct for all recipes
 	var correct_proportions = true;
 	var no_constant_add = true;
+	var both_level_four = false;
+	var level_four_cooked = 0;
 	var level_recipes = levels[player_level].recipes;
 	for (var i=0; i<level_recipes.length; i++){
 		// track whether user has proportions correct for this recipe
@@ -93,6 +98,9 @@ function generateFeedback(submission) {
 						console.log(user_amount);
 						console.log(ingredient_amount);
 					}
+					if (player_level == 4){
+						level_four_cooked += 1;
+					}
 				} else if (((user_serving != 0 && user_amount == 0) || (user_serving == 0 && user_amount != 0)) && user_serving != undefined && user_amount != undefined){
 					correct_proportions = false;
 					correct_proportions_recipe = false;
@@ -109,6 +117,11 @@ function generateFeedback(submission) {
 	// correct ratios for all dishes? log to console
 	if (correct_proportions) {
 		console.log("correct proportions!");
+	}
+
+	// in level four player cooked both dishes
+	if (level_four_cooked == 2){
+		both_level_four = true;
 	}
 
 	// determine if servings meet objectives
@@ -192,6 +205,17 @@ function generateFeedback(submission) {
 		}
 	}
 
+
+	// // handle cost input object for level four
+	// if (player_level == 4){
+	// 	for (var i=0; i<store_obj.length; i++){
+	// 		if (store_obj[i] != 0){
+	// 			met_objective = false;
+	// 		}
+	// 	}
+	// }
+
+
 	// failed to meet objective
 	if (! met_objective){
 		console.log("failed to meet objective!");
@@ -204,6 +228,10 @@ function generateFeedback(submission) {
 		feedback_scenario += ", " + no_constant_add.toString();
 		console.log(feedback_scenario);
 	}
+	// if (player_level == 4){
+	// 	feedback_scenario += ", " + both_level_four.toString();
+	// }
+	
 	var feedback_display = feedbackText[player_level-1][feedback_scenario];
 	if ((player_level == 2 || player_level == 1) && ! correct_proportions){
 		for (var i=0; i<incorrect_dishes.length - 1; i++){
