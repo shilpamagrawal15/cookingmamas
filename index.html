@@ -18,12 +18,12 @@
 		<script src="./javascript/data/homeText.js"></script>
 		<script src="./javascript/feedback.js"></script>
 	</head>
-	<body>
+	<body style="background-image:url(./images/cork.png)">
 		<div class="page-header" style="margin-left:5px;">
 		  <h1>Klopfer's Krazy Katering <small>learn how to cook to perfection</small></h1>
 		 	<!-- this button is just for testing -->
 			<div class="btn-group">
-			  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			  <button type="button" class="btn btn-game dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 			    Choose Your Level <span class="caret"></span>
 			  </button> 
 			  <ul class="dropdown-menu" role="menu">
@@ -36,11 +36,11 @@
 		</div>
 		<div class="row" style="margin-left:5px; margin-right:5px;">
 		  <div class="col-md-5">
-		  	<div class="well well-sm">
+		  	<div class="well well-sm well-objective">
 		  		<h4>Objective</h4>
 		  		<div id="objective"></div>
 		  	</div>
-		  	<div class="well well-sm" style="display:inline-block;">
+		  	<div class="well well-sm well-cabinet" style="display:inline-block;">
 		  		<h4>Your Cabinet</h4> <br>
 		  		<div id="cabinet" style="text-align:center;"></div>
 		  	</div>
@@ -48,42 +48,43 @@
 		  <div class="col-md-7">
 		  	<div class="row">
 		  		<div class="col-md-6">
-		  			<div id="recipe_0_static" class="well well-sm recipe-well"></div>
+		  			<div id="recipe_0_static" class="well well-sm recipe-well static-recipe"></div>
 		  		</div>
 		  		<div class="col-md-6">
-		  			<div id="recipe_0_input" class="well well-sm recipe-well"></div>
-		  		</div>
-		  	</div>
-		  	<div class="row">
-		  		<div class="col-md-6">
-		  			<div id="recipe_1_static" class="well well-sm recipe-well"></div>
-		  		</div>
-		  		<div class="col-md-6">
-		  			<div id="recipe_1_input" class="well well-sm recipe-well"></div>
+		  			<div id="recipe_0_input" class="well well-sm recipe-well input-recipe"></div>
 		  		</div>
 		  	</div>
 		  	<div class="row">
 		  		<div class="col-md-6">
-		  			<div id="recipe_2_static" class="well well-sm recipe-well"></div>
+		  			<div id="recipe_1_static" class="well well-sm recipe-well static-recipe"></div>
 		  		</div>
 		  		<div class="col-md-6">
-		  			<div id="recipe_2_input" class="well well-sm recipe-well"></div>
+		  			<div id="recipe_1_input" class="well well-sm recipe-well input-recipe"></div>
 		  		</div>
 		  	</div>
 		  	<div class="row">
 		  		<div class="col-md-6">
-		  			<div id="recipe_3_static" class="well well-sm recipe-well"></div>
+		  			<div id="recipe_2_static" class="well well-sm recipe-well static-recipe"></div>
 		  		</div>
 		  		<div class="col-md-6">
-		  			<div id="recipe_3_input" class="well well-sm recipe-well"></div>
+		  			<div id="recipe_2_input" class="well well-sm recipe-well input-recipe"></div>
+		  		</div>
+		  	</div>
+		  	<div class="row">
+		  		<div class="col-md-6">
+		  			<div id="recipe_3_static" class="well well-sm recipe-well static-recipe"></div>
+		  		</div>
+		  		<div class="col-md-6">
+		  			<div id="recipe_3_input" class="well well-sm recipe-well input-recipe"></div>
 		  		</div>
 		  	</div>
 		  	<div class="row">
 		  		<div class="col-md-12">
-		  			<div id="shopping" class="well well-sm"></div>
+		  			<div id="shopping" class="well well-sm well-store"></div>
 		  		</div>
 		  	</div>
-		  	<button id="cookBtn" class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#feedback_modal"> Cook! </button>
+		  	<div id="total_expenses"></div>
+		  	<button id="cookBtn" class="btn btn-game btn-lg" type="button" data-toggle="modal" data-target="#feedback_modal"> Cook! </button>
 		  </div>
 		</div>
 	</body>

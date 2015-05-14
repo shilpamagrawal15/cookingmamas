@@ -102,7 +102,7 @@ function loadLevel(level) {
 		$("#shopping").html("");
 		$("#shopping").append(shopping_header);
 		for (var i=0; i< levels[level].store.length; i++) {
-			var shop_item_input = '<input type="text" data-value="'+ levels[level].store[i].type +'" data-price='+levels[level].store[i].cost_per_unit+' data-quantity='+levels[level].store[i].amount_per_unit+' id="store_item_'+i+'" class="input-item">';
+			var shop_item_input = '<input type="text" data-value="'+ levels[level].store[i].type +'" data-price='+levels[level].store[i].cost_per_unit+' data-quantity='+levels[level].store[i].amount_per_unit+' data-amount-bought="0" id="store_item_'+i+'" class="input-item">';
 			var shop_item_quantity = " x "+levels[level].store[i].amount_per_unit + " " + ingredients[levels[level].store[i].type].unit + " pack " + ingredients[levels[level].store[i].type].name + " @ $" + levels[level].store[i].cost_per_unit + "/pack";
 			var shop_item_cost = ' = <u>$<span id="store_item_'+levels[level].store[i].type+'_cost" data-value="'+levels[level].store[i].type+'" data-cost="0">0</span></u> <br>'
 			$("#shopping").append(shop_item_input); 
@@ -152,6 +152,8 @@ function loadLevel(level) {
 		$("#shopping").append(purchase_button);
 		/* listener for purchase button */
 		$("#purchaseBtn").click(function(){
+			$("#total_expenses_price").attr('data-expenses', Number($("#total_expenses_price").attr('data-expenses'))+getTotalCost());
+			$("#total_expenses_price").html(-1*(Number($("#total_expenses_price").attr('data-expenses'))));
 			for (var i=0; i< levels[level].store.length; i++) {
 				var item = levels[level].store[i].type;
 				var input_id = "#store_item_"+i;
@@ -166,11 +168,21 @@ function loadLevel(level) {
 						var current_cabinet_amt = Number($(cabinet_quantity).attr('data-quantity'));
 						$(cabinet_quantity).html(current_cabinet_amt + amt_to_add);
 						$(cabinet_quantity).attr('data-quantity', current_cabinet_amt + amt_to_add);
+						$(input_id).attr('data-amount-bought', Number($(input_id).attr('data-amount-bought')) + input_val);
 					}
 				}
+				$(input_id).val('');
+				$("#total_shopping_cost").html("0");
 			}
 		});
-	}
+		$("#total_expenses").html('<h4>Total Expenses: $<span id=total_expenses_price data-expenses="0">0</span></h4>');
+		// HARCODED: append input for projected revenue
+		$("#recipe_0_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_0" type="text" class="input-item"></input></h5>'); 
+		$("#recipe_1_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_1" type="text" class="input-item"></input></h5>');
+		// HARDCODED: change the height of the recipe inputs
+		$("#recipe_0_input").height("15%");
+		$("#recipe_1_input").height("18%");
+	} // end shopping list code
 	/* associate listeners onto each of the text inputs */
 	for (var i=0; i<levels[level].recipes.length;i++) {
 		if (levels[level].recipes[i] != null) {

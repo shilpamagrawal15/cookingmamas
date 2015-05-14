@@ -4,47 +4,52 @@
 // @param submission: JavaScript object containing information from player's submitted recipes, 
 //     where ingredients & proportions used in a given recipe are specified within another JavaScript object
 
-
 $(document).ready(function () {
 	//submitting the answer and converting it into an object
 	$("#cookBtn").click(function(){
 		var input_obj = {};
-		// TODO: @shilpa
-		// some object from the store 
-		// var store_obj = {} 
-
+		// store object
+		var store_obj = {};
+		if(player_level == 4) {
+			for (var j=0; j<levels[player_level].store.length;j++) {
+				var input_id = "#store_item_"+j;
+				var store_item = levels[player_level].store[j].type;
+				var quantity_bought = $(input_id).attr("data-amount-bought");
+				store_obj[store_item] = quantity_bought;
+			}
+		}
 		for (var i=0; i<level_recipes.length; i++) {
 			var current_dish = level_recipes[i];
 			var input_ingredients = {};
-			for (var j=0; j<recipes[current_dish].ingredients.length;j++) {
-				var input_id = "#rec_"+i+"_ing_"+j;
-				var num_ingredients = $(input_id).val();
-				console.log(num_ingredients);
-				if (num_ingredients == "") { num_ingredients = 0; }
-				input_ingredients[recipes[current_dish].ingredients[j].type] = num_ingredients;
+			if (current_dish != null) {
+				for (var j=0; j<recipes[current_dish].ingredients.length;j++) {
+					var input_id = "#rec_"+i+"_ing_"+j;
+					var num_ingredients = $(input_id).val();
+					console.log(num_ingredients);
+					if (num_ingredients == "") { num_ingredients = 0; }
+					input_ingredients[recipes[current_dish].ingredients[j].type] = num_ingredients;	
+				}
+				// input_ingredients is a javascript object that has ingredient_name --> quantity 
+				var num_servings = $("#recipe_"+i+"_serving").val();
+				if (num_servings == "") { num_servings = 0; }
+				if (player_level == 4) {
+					var projected_rev = $("#projected_revenue_"+i).val();
+					input_obj[current_dish] = {ingredients: input_ingredients, servings: num_servings, projected_revenue:projected_rev};
+				}
+				else {
+					input_obj[current_dish] = {ingredients: input_ingredients, servings: num_servings};
+				}
 			}
-			// input_ingredients is a javascript object that has ingredient_name --> quantity 
-			var num_servings = $("#recipe_"+i+"_serving").val();
-			if (num_servings == "") { num_servings = 0; }
-			input_obj[current_dish] = {ingredients: input_ingredients, servings: num_servings};
 		}
+		input_obj["store"] = store_obj;
+		input_obj["total_spent"] = $("#total_expenses_price").attr('data-expenses');
 		console.log(input_obj);
 		feedback_display = generateFeedback(input_obj);
 		$("#myRecipe").text("From Chef Klopfer:");
 		$("#feedback_modal_body").text(feedback_display);	
 	});
 });
-// $('#feedback_modal').on('show.bs.modal', function (event) {
-//   var button = $(event.relatedTarget); // Button that triggered the modal
-//   //var recipient = button.data('whatever') // Extract info from data-* attributes
-//   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-//   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-//   var modal = $(this);
-//   console.log(feedback_display);
-//   modal.find('.modal-body').text(feedback_display);
-// });
 
-// TODO: @ava
 function generateFeedback(submission) {
 	var feedback_display = null;
 	var incorrect_dishes = []
@@ -244,37 +249,3 @@ function generateFeedback(submission) {
 	// }
 	return feedback_display;
 }
-
-
-
-// {
-// 	"Lemon Pound Cake": 
-// 		{
-// 			Servings: ,
-// 			Total Bill: ,
-// 			Ingredients: 
-// 				{
-// 					"flour": ,
-// 					...
-// 				}
-// 		},
-// 	"Extravagant Entree":  // what is this called?
-// 		{
-// 			Servings: ,
-// 			Total Bill: ,
-// 			Ingredients:
-// 				{
-// 					"flour": ,
-// 					...
-// 				}
-// 		},
-// 	"Store":
-// 		{
-// 			Total Cost: ,
-// 			Items:
-// 				{
-// 					"flour": ,
-// 					...
-// 				}
-// 		}
-// }
