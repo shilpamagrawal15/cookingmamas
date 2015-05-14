@@ -175,7 +175,7 @@ function loadLevel(level) {
 				$("#total_shopping_cost").html("0");
 			}
 		});
-		$("#total_expenses").html('<h4>Total Expenses: <span id=total_expenses_price data-expenses="0">0</span></h4>');
+		$("#total_expenses").html('<h4>Total Expenses: $<span id=total_expenses_price data-expenses="0">0</span></h4>');
 		// HARCODED: append input for projected revenue
 		$("#recipe_0_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_0" type="text" class="input-item"></input></h5>'); 
 		$("#recipe_1_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_1" type="text" class="input-item"></input></h5>');
