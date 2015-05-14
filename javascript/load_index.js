@@ -8,7 +8,7 @@ $(document).ready(function () {
 $(window).load(function () {
 	// here have the modal pop up with a description of the game 
 	$("#myRecipe").text("Klopfer's Krazy Katering!");
-	$("#feedback_modal_body").html(homeText);
+	$("#feedback_modal_body").html("<p>" + homeText1+ "<\p>" + "<p>" + homeText2 + "<\p>" + "<p>" + homeText3 + "<\p>");
 	$("#feedback_modal").modal({show:true});
 });
 
@@ -33,7 +33,7 @@ function loadLevel(level) {
 	$("#shopping").hide();
 	// load modal with objective
 	$("#myRecipe").text("Your Objective:");
-	$("#feedback_modal_body").text(levels[level].objective);
+	$("#feedback_modal_body").html(levels[level].objective);
 	$("#feedback_modal").modal({show:true});
 	loadGameScreen();
 	// load objective
