@@ -99,7 +99,7 @@ var levels =
 			},
 		3: 
 			{
-				objective: "You client, Lisa Li, is hosting a get-together for her office. She wants enough" + "<b>" + " entrees for 27" + "</b>" + " guests and enough" + "<b>" + " dessert for 27" + "</b>" + " guests, but 12 out of the 27 guests are vegetarians and 2 of the 27 are allergic to peanuts. You must make sure that the vegetarians have vegetarian options and the peanut allergy guest have peanut-free options. Keep in mind that your pantry has changed, and that if you make cake for dessert, you have to make entire cakes. Ms. Li is one of our best clients, so your dishes should be delightful as always!",
+				objective: "You client, Lisa Li, is hosting a get-together for her office. She wants enough" + "<b>" + " entrees for 27" + "</b>" + " guests and enough" + "<b>" + " dessert for 27" + "</b>" + " guests, but of the 27 guests, "+ "<b>" + "12 are vegetarians " + "</b>" + "and " + "<b>" + "2 are allergic to peanuts. " + "</b>" + "You must make sure that the vegetarians have vegetarian options and the peanut allergy guest have peanut-free options. Keep in mind that your pantry has changed, and that if you make cake for dessert, you have to make entire cakes. Ms. Li is one of our best clients, so your dishes should be delightful as always!",
 				recipes: ["Peanut Butter Cookies", "Lemon Pound Cake", "Sauteed Asparagus", "Shrimp Linguini"],
 				cabinet:
 					[
@@ -144,7 +144,7 @@ var levels =
 			},
 		4: 
 			{
-				objective: "Chef Klopfer has taught you that it is very important to bring in profit for the company. You have learned to think about the potential profit when considering client requests. Impress the boss by bringing in " + "<b>" + "as much profit as you can " + "</b>" + "! You receive two client requests but only have time to fulfill one. Shrimp-loving Shelly requests Cocunt Shrimp for exactly 40 people. You will charge her $30/person. Lemon-fanatic Larissa requests enough lemon bars to feed exactly 60 of her dessert-craving friends. You will charge her $18/person. Make the recipe that " + "<b>" + "maximizes the profit" + "</b>" + "! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
+				objective: "Chef Klopfer has taught you that it is very important to bring in profit for the company. You have learned to think about the potential profit when considering client requests. Impress the boss by bringing in as much profit as you can! You receive " + "<b>" + "two client requests but only have time to fulfill one. " + "</b>" + "Shrimp-loving Shelly requests " + "<b>" + "Coconut Shrimp for exactly 40 people. You will charge her $30/person. " + "</b>" + "Lemon-fanatic Larissa requests enough " + "<b>" + "lemon bars to feed exactly 60 of her dessert-craving friends. You will charge her $18/person. " + "</b>" + "Make the recipe that " + "<b>" + "maximizes the profit" + "</b>" + "! Notice that you may need to buy some things at the grocery store, which could bring down your profit.",
 				recipes: ["Lemon Bars", "Coconut Shrimp", null, null],
 				cabinet:
 					[
