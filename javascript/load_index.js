@@ -179,6 +179,9 @@ function loadLevel(level) {
 		// HARCODED: append input for projected revenue
 		$("#recipe_0_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_0" type="text" class="input-item"></input></h5>'); 
 		$("#recipe_1_input").append('<h5><br>Projected Revenue: <input id="projected_revenue_1" type="text" class="input-item"></input></h5>');
+		// HARDCODED: change the height of the recipe inputs
+		$("#recipe_0_input").height("15%");
+		$("#recipe_1_input").height("18%");
 	} // end shopping list code
 	/* associate listeners onto each of the text inputs */
 	for (var i=0; i<levels[level].recipes.length;i++) {

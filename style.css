@@ -21,3 +21,28 @@
 .recipe-well {
 	height:31%;
 }
+
+.static-recipe {
+	background: #7BEF7E;
+}
+
+.input-recipe {
+	background: #30BEA3;
+}
+
+.well-store {
+	background: #8FBC8F;
+}
+
+.btn-game {
+	background-color: #A230A8;
+	color: #FFFFFF;
+}
+
+.well-cabinet {
+	background: #C17230;
+}
+
+.well-objective {
+	background:#EA696D;
+}
