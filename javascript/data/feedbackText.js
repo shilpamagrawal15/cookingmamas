@@ -1,5 +1,7 @@
 /* List of objects containing the feedback that should be given in gameplay scenarios for a given level. Objects are ordered by increasing levels
 	- keys are of the form boolean, boolean where the first boolean reflects proportions, the second boolean reflects level objective
+	- for levels 1 and 2 third boolean reflects whether they added/subtracted a constant amount
+	- for level 4 third boolean reflects whether they cooked both Lemon Bars/Coconut Shrimp
 */
 
 var feedbackText = 
@@ -38,10 +40,16 @@ var feedbackText =
 		},
 
 		{
-			"true, true": "Way to go! You met your client's request and pleased Chef Klopfer by executing your dishes perfectly!",
-			"true, false" : "You're on your way! Chef Klopfer is pleased that you cooked your dishes using the right ingredient amounts, but you didn't make the optimal profit. Keep the objective in mind when deciding what to cook!",
-			"false, true" : "Chef Klopfer noticed that your dishes taste a bit off, even though you met your client's request. Keep in mind that you have information about how each dish should be cooked!",
-			"false, false" : "Chef Klopfer noticed that your dishes taste a bit off, and your client is not pleased that you were unable to maximize the profit. Keep in mind that you have information about how each dish should be cooked!",
-		},
+			"true, true, false": "Way to go! You correctly chose to take Larissa’s request and pleased Chef Klopfer by executing your dishes perfectly, and he’s very happy that you were able to maximize the profit! A promotion is likely in your future!" , 
+			"true, false, true": "Remember that you are only able to fulfill one of the two requests from Shelly and Larissa!", 
+			"true, false, false": "You’re on your way! Your cooking meets Chef Klopfer’s standards, but he knows that you could have pulled in more profit than you did. Remember that shopping will bring down your net revenue, the exact request, and exactly which ingredients are needed to cook the Coconut Shrimp versus the Lemon Bars.", 
+			"false, true, true": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"false, false, true": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"false, true, false": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			"false, false, false": "Chef Klopfer noticed that your dishes taste a bit off. Keep in mind that you have information about how each dish should be cooked!", 
+			 
+		}
+
+		
 	]
 
